@@ -1,0 +1,1015 @@
+<!doctype html>
+<html lang="zh-Hant" data-theme="light">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>賴柏延 & 馬琳｜婚禮邀請</title>
+  <meta name="description" content="賴柏延與馬琳的婚禮邀請網站，包含婚禮資訊、交通方式、Google 地圖與出席回覆。">
+
+  <!-- 可選：上線後把下方兩個網址改成你的 GitHub Pages 網址，可讓 LINE / Facebook 分享預覽更完整 -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="賴柏延 & 馬琳｜婚禮邀請" />
+  <meta property="og:description" content="誠摯邀請你來見證我們的重要日子。婚禮資訊、地圖與 RSVP 都在這裡。" />
+  <meta property="og:url" content="https://YOUR_GITHUB_PAGES_URL/" />
+  <meta property="og:image" content="https://YOUR_GITHUB_PAGES_URL/Fig1.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Serif+TC:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#f5efe6;
+      --bg-soft:#f9f6f1;
+      --paper:#fcf9f4;
+      --paper-2:#f3ede4;
+      --ink:#342a24;
+      --muted:#7b6a5d;
+      --line:#e6ddd0;
+      --accent:#8f6c52;
+      --accent-2:#c9b39a;
+      --shadow: 0 20px 60px rgba(74, 57, 40, .10);
+      --radius: 22px;
+      --max: 1160px;
+      --hero-grad: radial-gradient(1200px 560px at 0% -10%, rgba(255,255,255,.75) 0%, rgba(255,255,255,0) 60%), linear-gradient(180deg, #f7f2ea 0%, #f3ecdf 100%);
+    }
+    html[data-theme="dark"]{
+      --bg:#151311;
+      --bg-soft:#1b1816;
+      --paper:#1e1b18;
+      --paper-2:#161412;
+      --ink:#f3ece3;
+      --muted:#c9b8a5;
+      --line:#342d27;
+      --accent:#d8c1ab;
+      --accent-2:#8d6d52;
+      --shadow: 0 24px 70px rgba(0,0,0,.35);
+      --hero-grad: radial-gradient(1000px 520px at 0% -10%, rgba(255,255,255,.05) 0%, rgba(255,255,255,0) 60%), linear-gradient(180deg, #181614 0%, #13110f 100%);
+    }
+    html[data-theme="dark"] .topbar{background: rgba(24,22,20,.90);}
+    html[data-theme="dark"] .select,
+    html[data-theme="dark"] .btn,
+    html[data-theme="dark"] .card,
+    html[data-theme="dark"] .hero-copy,
+    html[data-theme="dark"] .gitem,
+    html[data-theme="dark"] .form-shell{background: rgba(30,27,24,.94);}
+    html[data-theme="dark"] .meta-item,
+    html[data-theme="dark"] .blurb,
+    html[data-theme="dark"] .transport-item,
+    html[data-theme="dark"] .faq-item,
+    html[data-theme="dark"] .notice{background: rgba(37,33,29,.92);}
+    html[data-theme="dark"] .hero-visual{background: linear-gradient(180deg, #23201d 0%, #191614 100%);}
+    html[data-theme="dark"] .brand-mark{background: linear-gradient(135deg, #3a2f27, #1f1b18);}
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--hero-grad), var(--bg);
+      color:var(--ink);
+      font-family:"Noto Serif TC", serif;
+      line-height:1.75;
+    }
+    img{max-width:100%; display:block}
+    a{color:inherit; text-decoration:none}
+    button, select, input, textarea{font:inherit}
+
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding: clamp(18px, 3vw, 36px);
+    }
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:40;
+      backdrop-filter: blur(14px);
+      background: rgba(249, 245, 239, .88);
+      border-bottom:1px solid var(--line);
+    }
+    .topbar-inner{
+      max-width:var(--max);
+      margin:0 auto;
+      padding: 12px clamp(18px, 3vw, 36px);
+      display:flex;
+      gap:12px;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      min-width: 0;
+    }
+    .brand-mark{
+      width:44px; height:44px;
+      border-radius:50%;
+      border:1px solid var(--line);
+      background:linear-gradient(135deg, #efe2d4, var(--paper));
+      display:grid;
+      place-items:center;
+      font-family:"Cormorant Garamond", serif;
+      font-size: 22px;
+      letter-spacing:.06em;
+      box-shadow: var(--shadow);
+      flex:0 0 auto;
+    }
+    .brand-text{
+      min-width: 0;
+    }
+    .brand-text strong{
+      display:block;
+      font-size:14px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:var(--muted);
+      font-family:"Cormorant Garamond", serif;
+    }
+    .brand-text span{
+      display:block;
+      font-size:15px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .controls{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:flex-end;
+    }
+    .select{
+      min-width: 170px;
+      padding:11px 14px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255, 251, 246, .92);
+      color:var(--ink);
+      box-shadow: var(--shadow);
+    }
+
+    header.hero{
+      padding: clamp(26px, 4vw, 54px) 0 8px;
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 26px;
+      align-items:stretch;
+    }
+    @media (max-width: 900px){
+      header.hero{
+        grid-template-columns: 1fr;
+      }
+    }
+    .card{
+      background: rgba(255, 252, 248, .95);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .hero-copy{
+      padding: clamp(24px, 4vw, 42px);
+      position:relative;
+      isolation:isolate;
+    }
+    .hero-copy::before{
+      content:"";
+      position:absolute;
+      inset:-30% auto auto -10%;
+      width:300px;
+      height:300px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(143,108,82,.10) 0%, transparent 70%);
+      z-index:-1;
+    }
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      font-size:13px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:var(--muted);
+      font-family:"Cormorant Garamond", serif;
+    }
+    .eyebrow::before, .eyebrow::after{
+      content:"";
+      display:block;
+      width:36px;
+      height:1px;
+      background:var(--line);
+    }
+    .title{
+      margin: 18px 0 10px;
+      font-family:"Cormorant Garamond", serif;
+      font-size: clamp(44px, 7.5vw, 82px);
+      line-height:.95;
+      letter-spacing:.01em;
+    }
+    .couple{
+      font-size: clamp(19px, 2.5vw, 28px);
+      color:var(--muted);
+      margin: 0 0 18px;
+      letter-spacing:.02em;
+    }
+    .hero-meta{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin: 24px 0 18px;
+    }
+    @media (max-width: 520px){
+      .hero-meta{
+        grid-template-columns:1fr;
+      }
+    }
+    .meta-item{
+      padding:14px 16px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background: #f5efe7;
+    }
+    .meta-item span{
+      display:block;
+      font-size:12px;
+      color:var(--muted);
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      font-family:"Cormorant Garamond", serif;
+    }
+    .meta-item strong{
+      display:block;
+      margin-top:6px;
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .hero-desc{
+      margin:0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .hero-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top: 24px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding: 13px 18px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255, 251, 246, .92);
+      font-size: 15px;
+      font-weight: 500;
+    }
+    .btn.primary{
+      background: var(--ink);
+      color: var(--paper);
+      border-color: var(--ink);
+    }
+
+    .hero-visual{
+      position:relative;
+      min-height: 420px;
+      background:
+        radial-gradient(500px 260px at 80% 10%, rgba(255,255,255,.55), rgba(255,255,255,0)),
+        linear-gradient(180deg, #f8f1e7 0%, #fcfaf7 100%);
+    }
+    .hero-photo{
+      position:absolute;
+      right: clamp(16px, 3vw, 28px);
+      top: clamp(16px, 3vw, 28px);
+      width:min(92%, 500px);
+      border-radius: 26px;
+      overflow:hidden;
+      border:1px solid var(--line);
+      box-shadow: var(--shadow);
+      transform: rotate(2.5deg);
+      background: var(--paper);
+    }
+    .hero-photo img{
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      width:100%;
+    }
+    .floating-note{
+      position:absolute;
+      left: clamp(18px, 3vw, 28px);
+      bottom: clamp(18px, 3vw, 30px);
+      width:min(72%, 320px);
+      padding: 18px 18px 16px;
+      background: rgba(255, 251, 246, .92);
+      border:1px solid var(--line);
+      border-radius:20px;
+      box-shadow: var(--shadow);
+      transform: rotate(-4deg);
+    }
+    .floating-note .label{
+      font-family:"Cormorant Garamond", serif;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .floating-note strong{
+      display:block;
+      margin-top: 6px;
+      font-size: 17px;
+    }
+    .floating-note p{
+      margin: 8px 0 0;
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.6;
+    }
+
+    section.block{
+      margin-top: 18px;
+    }
+    .section-head{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:12px;
+    }
+    .section-head h2{
+      margin:0;
+      font-family:"Cormorant Garamond", serif;
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 500;
+      line-height:1;
+    }
+    .section-head p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .invitation{
+      padding: 28px;
+    }
+    .invitation-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:16px;
+    }
+    @media (max-width: 780px){
+      .invitation-grid{grid-template-columns:1fr;}
+    }
+    .blurb{
+      padding: 20px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background: #f5efe7;
+    }
+    .blurb h3{
+      margin:0 0 8px;
+      font-size:20px;
+      font-family:"Cormorant Garamond", serif;
+      font-weight:600;
+    }
+    .blurb p{
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    .gallery-shell{
+      padding: 18px;
+    }
+    .gallery-grid{
+      columns: 3 250px;
+      column-gap: 14px;
+    }
+    @media (max-width: 900px){
+      .gallery-grid{ columns: 2 210px; }
+    }
+    @media (max-width: 520px){
+      .gallery-grid{ columns: 1 250px; }
+    }
+    .gitem{
+      width:100%;
+      display:inline-block;
+      break-inside: avoid;
+      margin:0 0 14px;
+      padding:0;
+      border:1px solid var(--line);
+      border-radius:18px;
+      overflow:hidden;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      cursor:pointer;
+      position:relative;
+    }
+    .gitem img{
+      width:100%;
+      height:auto;
+      display:block;
+      transform: scale(1.005);
+      transition: transform .28s ease;
+    }
+    .gitem:hover img{ transform: scale(1.04); }
+    .gcap{
+      position:absolute;
+      inset:auto 14px 14px 14px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.68);
+      color:#3b2f27;
+      font-size:13px;
+      line-height:1.4;
+      backdrop-filter: blur(10px);
+      border:1px solid rgba(255,255,255,.45);
+    }
+    html[data-theme="dark"] .gcap{
+      background: rgba(17,15,13,.66);
+      color:#f1e8dd;
+      border-color: rgba(255,255,255,.08);
+    }
+    .gcap strong{
+      display:block;
+      font-family:"Cormorant Garamond", serif;
+      font-size:18px;
+      letter-spacing:.06em;
+    }
+
+    .two-col{
+      display:grid;
+      grid-template-columns: 1fr .95fr;
+      gap: 18px;
+    }
+    @media (max-width: 920px){
+      .two-col{ grid-template-columns: 1fr; }
+    }
+
+    .transport-card, .rsvp-card{
+      padding: 24px;
+    }
+
+    .transport-list{
+      display:grid;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .transport-item{
+      padding: 16px 18px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background: #f5efe7;
+    }
+    .transport-item strong{
+      display:block;
+      font-size: 18px;
+      font-family:"Cormorant Garamond", serif;
+      font-weight:600;
+      margin-bottom:4px;
+    }
+    .transport-item p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .map-frame{
+      border:1px solid var(--line);
+      border-radius: 20px;
+      overflow:hidden;
+      box-shadow: var(--shadow);
+      margin-top: 16px;
+    }
+    .map-frame iframe{
+      width:100%;
+      height:min(48vh, 440px);
+      border:0;
+      display:block;
+    }
+
+    .rsvp-card p.desc{
+      margin:0;
+      color:var(--muted);
+      font-size:15px;
+    }
+    .notice{
+      margin-top:16px;
+      padding:16px 18px;
+      border:1px dashed #ccb9a4;
+      border-radius:18px;
+      background: #f5efe7;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .notice strong{
+      color:var(--ink);
+      display:block;
+      margin-bottom: 6px;
+      font-family:"Cormorant Garamond", serif;
+      font-size: 22px;
+      font-weight: 600;
+    }
+    .form-shell{
+      margin-top: 16px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      overflow:hidden;
+      background: var(--paper);
+      min-height: 560px;
+      box-shadow: var(--shadow);
+    }
+    .form-shell iframe{
+      width:100%;
+      min-height: 680px;
+      border:0;
+      display:block;
+      background:#fff;
+    }
+    .hidden{display:none !important}
+
+    .faq-card{
+      padding: 24px;
+    }
+    .faq-grid{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap:12px;
+      margin-top: 16px;
+    }
+    @media (max-width: 860px){
+      .faq-grid{ grid-template-columns:1fr; }
+    }
+    .faq-item{
+      padding:18px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background: #f5efe7;
+    }
+    .faq-item strong{
+      display:block;
+      margin-bottom: 6px;
+      font-size:18px;
+      font-family:"Cormorant Garamond", serif;
+      font-weight:600;
+    }
+    .faq-item p{
+      margin:0;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    footer{
+      padding: 22px 0 44px;
+      color:var(--muted);
+      font-size: 13px;
+      text-align:center;
+    }
+
+    /* Lightbox */
+    .lightbox{
+      position:fixed;
+      inset:0;
+      z-index:100;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      background: rgba(16,14,12,.84);
+      padding: 18px;
+    }
+    .lightbox.open{display:flex}
+    .lightbox-card{
+      width:min(1040px, 100%);
+      background: rgba(17,15,13,.92);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius: 24px;
+      overflow:hidden;
+      box-shadow: 0 30px 90px rgba(0,0,0,.35);
+      position:relative;
+    }
+    .lightbox img{
+      width:100%;
+      height:min(76vh, 820px);
+      object-fit:contain;
+      display:block;
+      background:#141210;
+    }
+    .lightbox-bar{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      justify-content:space-between;
+      padding: 12px 16px;
+      color:#f2e8dd;
+    }
+    .lightbox-label{
+      font-size:14px;
+    }
+    .lightbox-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .lightbox-btn{
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      color:#fff;
+    }
+    .close-x{
+      position:absolute;
+      top:12px;
+      right:12px;
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.08);
+      color:#fff;
+      font-size:22px;
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="brand-mark">B&M</div>
+        <div class="brand-text">
+          <strong>wedding invitation</strong>
+          <span>賴柏延 ＆ 馬琳 ・ 2026 / 05 / 30</span>
+        </div>
+      </div>
+
+      <div class="controls">
+        <select class="select" id="jumpSelect" aria-label="頁面跳轉">
+          <option value="">下拉跳轉：選擇段落</option>
+          <option value="#top">回到最上方</option>
+          <option value="#invitation">婚禮資訊</option>
+          <option value="#gallery">裝飾相片</option>
+          <option value="#traffic">交通資訊</option>
+          <option value="#rsvp">出席回覆 RSVP</option>
+          <option value="#faq">常見問題</option>
+        </select>
+
+        <select class="select" id="themeSelect" aria-label="主題切換">
+          <option value="light">主題：奶油文青</option>
+          <option value="dark">主題：深色文青</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap" id="top">
+    <header class="hero">
+      <div class="card hero-copy">
+        <div class="eyebrow">Save The Date</div>
+        <h1 class="title">Wedding</h1>
+        <p class="couple">賴柏延 · 馬琳</p>
+
+        <div class="hero-meta">
+          <div class="meta-item">
+            <span>Date</span>
+            <strong>2026 / 05 / 30（六）</strong>
+          </div>
+          <div class="meta-item">
+            <span>Venue</span>
+            <strong>台中旌旗教會</strong>
+          </div>
+          <div class="meta-item">
+            <span>Dress</span>
+            <strong>簡約、優雅、舒服即可</strong>
+          </div>
+        </div>
+
+        <p class="hero-desc">
+          親愛的家人與朋友，誠摯邀請你來見證我們的重要日子。
+          網站內已整理好婚禮資訊、交通方式、Google 地圖與出席回覆，手機與電腦都會自動調整版面。
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="#rsvp">我要填寫出席回覆</a>
+          <a class="btn" href="#traffic">查看交通與地圖</a>
+        </div>
+      </div>
+
+      <div class="card hero-visual">
+        <div class="hero-photo">
+          <img src="./Fig1.png" alt="婚禮裝飾圖 1">
+        </div>
+        <div class="floating-note">
+          <div class="label">Our day</div>
+          <strong>台中旌旗教會</strong>
+          <p>408 台中市南屯區文心南五路三段 160 號<br>請於婚禮當日提早抵達，悠閒入場。</p>
+        </div>
+      </div>
+    </header>
+
+    <section class="block card invitation" id="invitation">
+      <div class="section-head">
+        <h2>Invitation</h2>
+        <p>婚禮網站資訊總覽</p>
+      </div>
+
+      <div class="invitation-grid">
+        <div class="blurb">
+          <h3>婚禮日期</h3>
+          <p>2026 年 5 月 30 日（星期六）<br>建議先將日期保留下來，詳細流程可再依你們日後補充更新。</p>
+        </div>
+        <div class="blurb">
+          <h3>婚禮地點</h3>
+          <p>台中旌旗教會<br>地址已寫在地圖與交通資訊區塊，可直接點開導航。</p>
+        </div>
+        <div class="blurb">
+          <h3>RSVP 出席回覆</h3>
+          <p>我已經把 Google 表單區塊預留在網站裡。你建立好 Google 表單後，只要貼入兩個網址，就能直接嵌入網站。</p>
+        </div>
+        <div class="blurb">
+          <h3>裝飾相片</h3>
+          <p>網站已放入 5 張文青復古風示意裝飾圖：Fig1.png ～ Fig5.png。未來你也可以直接替換成自己的婚紗照。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="block card gallery-shell" id="gallery">
+      <div class="section-head">
+        <h2>Gallery</h2>
+        <p>往下滑可看完整相片牆，點圖可放大</p>
+      </div>
+
+      <div class="gallery-grid">
+        <button class="gitem" data-index="0" type="button">
+          <img src="./Fig1.png" alt="裝飾圖 1">
+          <div class="gcap"><strong>Fig 1</strong>Quiet Morning</div>
+        </button>
+
+        <button class="gitem" data-index="1" type="button">
+          <img src="./Fig2.png" alt="裝飾圖 2">
+          <div class="gcap"><strong>Fig 2</strong>Invitation Flatlay</div>
+        </button>
+
+        <button class="gitem" data-index="2" type="button">
+          <img src="./Fig3.png" alt="裝飾圖 3">
+          <div class="gcap"><strong>Fig 3</strong>Bouquet Detail</div>
+        </button>
+
+        <button class="gitem" data-index="3" type="button">
+          <img src="./Fig4.png" alt="裝飾圖 4">
+          <div class="gcap"><strong>Fig 4</strong>Reception Table</div>
+        </button>
+
+        <button class="gitem" data-index="4" type="button">
+          <img src="./Fig5.png" alt="裝飾圖 5">
+          <div class="gcap"><strong>Fig 5</strong>Morning Notes</div>
+        </button>
+      </div>
+    </section>
+
+    <section class="block two-col" id="traffic">
+      <div class="card transport-card">
+        <div class="section-head">
+          <h2>Traffic</h2>
+          <p>交通資訊與場地位置</p>
+        </div>
+
+        <div class="transport-list">
+          <div class="transport-item">
+            <strong>場地地址</strong>
+            <p>408 台中市南屯區文心南五路三段 160 號</p>
+          </div>
+          <div class="transport-item">
+            <strong>台中火車站出發</strong>
+            <p>步行至前站（成功路口）搭乘 75 號公車，於「黎明向上路口站」下車，步行約 10 分鐘。</p>
+          </div>
+          <div class="transport-item">
+            <strong>高鐵台中站 / 朝馬出發</strong>
+            <p>搭乘 160 號高鐵快捷公車，於「向上永春東七路站」下車，步行約 7 分鐘。</p>
+          </div>
+          <div class="transport-item">
+            <strong>新光三越 / 遠百出發</strong>
+            <p>於「惠中市政北三路口（僑園對面）」搭乘 199 號公車，至「五權西向上路口站」下車，步行約 3 分鐘。</p>
+          </div>
+          <div class="transport-item">
+            <strong>台中國家歌劇院出發</strong>
+            <p>搭乘 75 號公車，於「黎明向上路口站」下車，步行約 10 分鐘。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card transport-card">
+        <div class="section-head">
+          <h2>Google Map</h2>
+          <p>可直接開導航</p>
+        </div>
+
+        <div class="map-frame">
+          <iframe id="mapEmbed" title="台中旌旗教會 Google 地圖" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn primary" id="mapNavBtn" target="_blank" rel="noopener">打開 Google Maps 導航</a>
+          <a class="btn" href="#rsvp">直接跳到出席回覆</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="block card rsvp-card" id="rsvp">
+      <div class="section-head">
+        <h2>RSVP</h2>
+        <p>Google 表單嵌入區</p>
+      </div>
+
+      <p class="desc">
+        這裡已經預留好 Google 表單嵌入區。你建立好表單後，只需要把
+        <code>FORM_VIEW_URL</code> 和 <code>FORM_EMBED_URL</code> 貼進頁面設定，就能直接顯示在網站裡。
+      </p>
+
+      <div class="notice" id="formNotice">
+        <strong>目前尚未接上 Google 表單</strong>
+        這是正常的，因為我無法直接登入你的 Google 帳號替你建立表單。
+        你只要依照同資料夾內的教學文件建立 Google 表單，然後把 index.html 最下方設定區中的
+        <code>FORM_VIEW_URL</code> 與 <code>FORM_EMBED_URL</code> 改掉，再重新上傳到 GitHub 即可。
+      </div>
+
+      <div class="form-shell hidden" id="formShell">
+        <iframe id="formEmbed" title="婚禮出席回覆 Google 表單"></iframe>
+      </div>
+
+      <div class="hero-actions">
+        <a class="btn primary hidden" id="formOpenBtn" target="_blank" rel="noopener">另開 Google 表單</a>
+        <a class="btn" href="#traffic">回到交通資訊</a>
+      </div>
+    </section>
+
+    <section class="block card faq-card" id="faq">
+      <div class="section-head">
+        <h2>FAQ</h2>
+        <p>網站使用與婚禮小提醒</p>
+      </div>
+
+      <div class="faq-grid">
+        <div class="faq-item">
+          <strong>手機可以看嗎？</strong>
+          <p>可以。整個網站已經做好 RWD，自動適應手機、平板與電腦螢幕大小。</p>
+        </div>
+        <div class="faq-item">
+          <strong>要怎麼改照片？</strong>
+          <p>直接把新的照片檔覆蓋 Fig1.png 到 Fig5.png，保持同檔名，再重新上傳 GitHub 就好。</p>
+        </div>
+        <div class="faq-item">
+          <strong>要怎麼改文字？</strong>
+          <p>用記事本、VS Code 或 GitHub 網頁版直接編輯 index.html，修改人名、流程、FAQ 即可。</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      賴柏延 ＆ 馬琳 ・ Wedding Website ・ Built for GitHub Pages
+    </footer>
+  </div>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-card">
+      <button class="close-x" id="lightboxClose" aria-label="關閉">×</button>
+      <img id="lightboxImg" alt="Gallery preview">
+      <div class="lightbox-bar">
+        <div class="lightbox-label" id="lightboxLabel">1 / 5</div>
+        <div class="lightbox-actions">
+          <button class="lightbox-btn" id="prevBtn" type="button">上一張</button>
+          <button class="lightbox-btn" id="nextBtn" type="button">下一張</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /*
+      ===== 你之後只需要改這兩行 Google 表單網址 =====
+      FORM_VIEW_URL：Google 表單公開連結
+      FORM_EMBED_URL：Google 表單嵌入 iframe 連結
+      教學請看同資料夾的「README-保母級上傳教學.md」
+    */
+    const SITE_CONFIG = {
+      FORM_VIEW_URL: "PASTE_GOOGLE_FORM_VIEW_URL_HERE",
+      FORM_EMBED_URL: "PASTE_GOOGLE_FORM_EMBED_URL_HERE",
+      MAP_QUERY: "台中旌旗教會 408台中市南屯區文心南五路三段160號"
+    };
+
+    // 下拉跳轉
+    const jumpSelect = document.getElementById("jumpSelect");
+    jumpSelect.addEventListener("change", () => {
+      const target = jumpSelect.value;
+      if (!target) return;
+      const el = document.querySelector(target);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+      jumpSelect.value = "";
+    });
+
+    // 主題切換
+    const themeSelect = document.getElementById("themeSelect");
+    const storedTheme = localStorage.getItem("wedding_theme") || "light";
+    document.documentElement.setAttribute("data-theme", storedTheme);
+    themeSelect.value = storedTheme;
+    themeSelect.addEventListener("change", () => {
+      document.documentElement.setAttribute("data-theme", themeSelect.value);
+      localStorage.setItem("wedding_theme", themeSelect.value);
+    });
+
+    // 地圖
+    const mapQuery = encodeURIComponent(SITE_CONFIG.MAP_QUERY);
+    const mapEmbed = document.getElementById("mapEmbed");
+    const mapNavBtn = document.getElementById("mapNavBtn");
+    mapEmbed.src = `https://www.google.com/maps?q=${mapQuery}&output=embed`;
+    mapNavBtn.href = `https://www.google.com/maps/search/?api=1&query=${mapQuery}`;
+
+    // Google Form 嵌入
+    const formNotice = document.getElementById("formNotice");
+    const formShell = document.getElementById("formShell");
+    const formEmbed = document.getElementById("formEmbed");
+    const formOpenBtn = document.getElementById("formOpenBtn");
+
+    const validFormView = SITE_CONFIG.FORM_VIEW_URL.startsWith("https://");
+    const validFormEmbed = SITE_CONFIG.FORM_EMBED_URL.startsWith("https://");
+
+    if (validFormEmbed) {
+      formShell.classList.remove("hidden");
+      formEmbed.src = SITE_CONFIG.FORM_EMBED_URL;
+      formNotice.classList.add("hidden");
+    }
+    if (validFormView) {
+      formOpenBtn.classList.remove("hidden");
+      formOpenBtn.href = SITE_CONFIG.FORM_VIEW_URL;
+    }
+
+    // Gallery Lightbox
+    const galleryButtons = Array.from(document.querySelectorAll(".gitem"));
+    const images = galleryButtons.map(btn => btn.querySelector("img").getAttribute("src"));
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const lightboxLabel = document.getElementById("lightboxLabel");
+    const lightboxClose = document.getElementById("lightboxClose");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    let currentIndex = 0;
+
+    function openLightbox(index){
+      currentIndex = index;
+      lightboxImg.src = images[currentIndex];
+      lightboxLabel.textContent = `${currentIndex + 1} / ${images.length}`;
+      lightbox.classList.add("open");
+      document.body.style.overflow = "hidden";
+    }
+    function closeLightbox(){
+      lightbox.classList.remove("open");
+      document.body.style.overflow = "";
+    }
+    function showPrev(){
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      lightboxImg.src = images[currentIndex];
+      lightboxLabel.textContent = `${currentIndex + 1} / ${images.length}`;
+    }
+    function showNext(){
+      currentIndex = (currentIndex + 1) % images.length;
+      lightboxImg.src = images[currentIndex];
+      lightboxLabel.textContent = `${currentIndex + 1} / ${images.length}`;
+    }
+
+    galleryButtons.forEach((btn, idx) => {
+      btn.addEventListener("click", () => openLightbox(idx));
+    });
+    lightboxClose.addEventListener("click", closeLightbox);
+    prevBtn.addEventListener("click", showPrev);
+    nextBtn.addEventListener("click", showNext);
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (!lightbox.classList.contains("open")) return;
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft") showPrev();
+      if (e.key === "ArrowRight") showNext();
+    });
+
+    // 手機左右滑動
+    let startX = 0, deltaX = 0;
+    lightboxImg.addEventListener("touchstart", (e) => {
+      startX = e.touches[0].clientX;
+      deltaX = 0;
+    }, { passive: true });
+    lightboxImg.addEventListener("touchmove", (e) => {
+      deltaX = e.touches[0].clientX - startX;
+    }, { passive: true });
+    lightboxImg.addEventListener("touchend", () => {
+      if (Math.abs(deltaX) > 50) {
+        deltaX > 0 ? showPrev() : showNext();
+      }
+    }, { passive: true });
+  </script>
+</body>
+</html>
