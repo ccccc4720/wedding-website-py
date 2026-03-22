@@ -132,9 +132,10 @@
       overflow:hidden;
       box-shadow:0 20px 50px rgba(60,38,20,.12);
       isolation:isolate;
+      /* 將背景改為 bg_fig1.png，並疊加半透明白色讓底紋不那麼刺眼 */
       background:
-        linear-gradient(180deg, rgba(255,255,255,.22), rgba(255,255,255,.08)),
-        url("./bg_scene.png");
+        linear-gradient(180deg, rgba(255,255,255,.65), rgba(255,255,255,.65)),
+        url("./bg_fig1.png");
       background-size:cover;
       background-position:center;
       background-repeat:no-repeat;
@@ -164,8 +165,7 @@
     }
 
     .hero-sparkles,
-    .hero-cloud,
-    .castle-silhouette{
+    .hero-cloud{
       position:absolute;
       pointer-events:none;
       z-index:1;
@@ -208,33 +208,7 @@
       animation:floatCloud 10s ease-in-out infinite reverse;
     }
 
-    .castle-silhouette{
-      left:0;
-      right:0;
-      bottom:0;
-      height:28%;
-      background:linear-gradient(180deg, transparent 0%, rgba(0,0,0,.05) 26%, rgba(0,0,0,.16) 100%);
-    }
-
-    .castle-silhouette::before{
-      content:"";
-      position:absolute;
-      left:50%;
-      bottom:0;
-      width:min(80%, 760px);
-      height:100%;
-      transform:translateX(-50%);
-      background:linear-gradient(180deg, transparent 0 52%, rgba(62,48,45,.88) 52% 100%);
-      clip-path: polygon(
-        0% 100%, 0% 76%, 8% 76%, 8% 56%, 12% 42%, 16% 56%, 16% 76%,
-        24% 76%, 24% 66%, 30% 46%, 36% 66%, 36% 76%,
-        44% 76%, 44% 36%, 50% 18%, 56% 36%, 56% 76%,
-        64% 76%, 64% 66%, 70% 46%, 76% 66%, 76% 76%,
-        84% 76%, 84% 56%, 88% 42%, 92% 56%, 92% 76%,
-        100% 76%, 100% 100%
-      );
-      opacity:.42;
-    }
+    /* 城堡 CSS 已移除 */
 
     .hero-inner{
       position:relative;
@@ -296,7 +270,7 @@
     }
 
     .count-item{
-      background:rgba(255,255,255,.75);
+      background:rgba(255,255,255,.85);
       border:1px solid rgba(255,255,255,.72);
       border-radius:20px;
       padding:16px 10px;
@@ -823,15 +797,14 @@
       <div class="hero-sparkles"></div>
       <div class="hero-cloud cloud-left"></div>
       <div class="hero-cloud cloud-right"></div>
-      <div class="castle-silhouette"></div>
+      <!-- 城堡剪影的 div 已刪除 -->
 
       <div class="hero-inner">
-        <!-- 在這裡加入了帶有 bg_fig1.png 浮水印的區塊 -->
+        <!-- 文字區塊現在改為純粹的毛玻璃白底卡片 -->
         <div style="
-          background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('./bg_fig1.png');
-          background-size: cover;
-          background-position: center;
-          padding: 30px 40px;
+          background: rgba(255, 255, 255, 0.85);
+          backdrop-filter: blur(8px);
+          padding: 40px 30px;
           border-radius: 24px;
           box-shadow: var(--shadow-soft);
           border: 1px solid rgba(255, 255, 255, 0.6);
