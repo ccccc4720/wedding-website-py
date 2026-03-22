@@ -75,7 +75,6 @@
       gap:12px;
     }
 
-    /* 在這裡將原本的紅底白圈改成使用 circle_fig1.png 圖片 */
     .brand-mark{
       width:42px;
       height:42px;
@@ -125,6 +124,7 @@
       box-shadow:0 12px 22px rgba(68,45,30,.08);
     }
 
+    /* 將主背景圖改為 circle_fig1.png */
     .hero{
       position:relative;
       min-height:clamp(500px, 68vw, 820px);
@@ -134,7 +134,7 @@
       isolation:isolate;
       background:
         linear-gradient(180deg, rgba(255,255,255,.22), rgba(255,255,255,.08)),
-        url("./bg_scene.png");
+        url("./circle_fig1.png");
       background-size:cover;
       background-position:center;
       background-repeat:no-repeat;
@@ -208,32 +208,9 @@
       animation:floatCloud 10s ease-in-out infinite reverse;
     }
 
+    /* 隱藏城堡背景剪影 */
     .castle-silhouette{
-      left:0;
-      right:0;
-      bottom:0;
-      height:28%;
-      background:linear-gradient(180deg, transparent 0%, rgba(0,0,0,.05) 26%, rgba(0,0,0,.16) 100%);
-    }
-
-    .castle-silhouette::before{
-      content:"";
-      position:absolute;
-      left:50%;
-      bottom:0;
-      width:min(80%, 760px);
-      height:100%;
-      transform:translateX(-50%);
-      background:linear-gradient(180deg, transparent 0 52%, rgba(62,48,45,.88) 52% 100%);
-      clip-path: polygon(
-        0% 100%, 0% 76%, 8% 76%, 8% 56%, 12% 42%, 16% 56%, 16% 76%,
-        24% 76%, 24% 66%, 30% 46%, 36% 66%, 36% 76%,
-        44% 76%, 44% 36%, 50% 18%, 56% 36%, 56% 76%,
-        64% 76%, 64% 66%, 70% 46%, 76% 66%, 76% 76%,
-        84% 76%, 84% 56%, 88% 42%, 92% 56%, 92% 76%,
-        100% 76%, 100% 100%
-      );
-      opacity:.42;
+      display: none;
     }
 
     .hero-inner{
@@ -338,6 +315,15 @@
       border-radius:var(--radius);
       box-shadow:var(--shadow);
       overflow:hidden;
+    }
+
+    /* 為婚禮資訊（id="info"）專屬設定 bg_fig2.png 背景 */
+    #info.card {
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
+        url("./bg_fig2.png");
+      background-size: cover;
+      background-position: center;
     }
 
     .card-body{
@@ -803,7 +789,6 @@
   <div class="wrap">
     <header class="top-nav">
       <div class="brand">
-        <!-- 這裡的 div 已經會吃到上方修改過載入 circle_fig1.png 的 CSS 規則 -->
         <div class="brand-mark" aria-hidden="true"></div>
         <div class="brand-text">
           <strong>賴柏延 & 馬琳</strong>
@@ -827,7 +812,6 @@
       <div class="castle-silhouette"></div>
 
       <div class="hero-inner">
-        <!-- 保留上一步加入的 bg_fig1.png 背景底紋區塊 -->
         <div style="
           background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('./bg_fig1.png');
           background-color: rgba(255, 255, 255, 0.5);
