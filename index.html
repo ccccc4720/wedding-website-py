@@ -131,7 +131,6 @@
       overflow:hidden;
       box-shadow:0 20px 50px rgba(60,38,20,.12);
       isolation:isolate;
-      /* 城堡背景的底色改為卡其白色調 */
       background: linear-gradient(180deg, rgba(246, 239, 230, 0.85), rgba(246, 239, 230, 0.4));
     }
 
@@ -203,6 +202,7 @@
       animation:floatCloud 10s ease-in-out infinite reverse;
     }
 
+    /* 城堡背景漸層：保留左右羽化，加入上方5%至下方85%的透明度漸層，並利用 mask-composite 交疊 */
     .castle-silhouette{
       top: 0;
       left: 0;
@@ -211,8 +211,14 @@
       height: 100%;
       background: url('./castle_0.png') no-repeat center bottom;
       background-size: auto 100%;
-      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
-      mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+      -webkit-mask-image: 
+        linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.85) 100%),
+        linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+      -webkit-mask-composite: source-in;
+      mask-image: 
+        linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.85) 100%),
+        linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+      mask-composite: intersect;
     }
 
     .hero-inner{
@@ -978,14 +984,12 @@
             <p>建議婚禮開始前 20–30 分鐘到場，方便報到與入座，也能更從容地拍照與休息。</p>
           </div>
 
-          <!-- 交通資訊修改：加入國道一號與正德醫院停車場資訊 -->
           <div class="traffic-card">
             <h3>自行開車</h3>
             <p>國道一號請下<strong>南屯交流道</strong>（往台中方向），直行五權西路二段後右轉益豐路四段即可抵達。</p>
-            <p>建議將車輛停放於教會旁的<strong>正德醫院地下停車場</strong>（計時收費約 $40/小時）。</p>
+            <p>建議將車輛停放於教會旁的<strong>正德醫院地下停車場</strong>（計時收費 $15/半小時，停好車再步行至教會）。</p>
           </div>
 
-          <!-- 交通資訊修改：加入具體公車與高鐵轉乘資訊 -->
           <div class="traffic-card">
             <h3>大眾運輸</h3>
             <p>・<strong>台中火車站</strong>：請搭乘 75 號公車至「黎明向上路口」，步行約 10 分鐘。<br>・<strong>高鐵台中站</strong>：請搭乘 160 號快捷公車至「向上永春東七路」，步行約 7 分鐘。</p>
@@ -1004,24 +1008,25 @@
 
         <div class="carousel-shell">
           <div class="carousel" id="photoCarousel">
+            <!-- 已經將這裡的圖片路徑換成「婚禮相簿」資料夾 -->
             <div class="slide">
-              <img src="./Fig1.png" alt="Fig1">
+              <img src="./婚禮相簿/1.jpg" alt="Photo 1" onerror="this.src='./Fig1.png'">
               <div class="slide-caption">Fig.01 ・ 一起收藏此刻</div>
             </div>
             <div class="slide">
-              <img src="./Fig2.png" alt="Fig2">
+              <img src="./婚禮相簿/2.jpg" alt="Photo 2" onerror="this.src='./Fig2.png'">
               <div class="slide-caption">Fig.02 ・ 日常裡的溫柔</div>
             </div>
             <div class="slide">
-              <img src="./Fig3.png" alt="Fig3">
+              <img src="./婚禮相簿/3.jpg" alt="Photo 3" onerror="this.src='./Fig3.png'">
               <div class="slide-caption">Fig.03 ・ 城堡般的心情</div>
             </div>
             <div class="slide">
-              <img src="./Fig4.png" alt="Fig4">
+              <img src="./婚禮相簿/4.jpg" alt="Photo 4" onerror="this.src='./Fig4.png'">
               <div class="slide-caption">Fig.04 ・ 童話感的小片段</div>
             </div>
             <div class="slide">
-              <img src="./Fig5.png" alt="Fig5">
+              <img src="./婚禮相簿/5.jpg" alt="Photo 5" onerror="this.src='./Fig5.png'">
               <div class="slide-caption">Fig.05 ・ 等待那一天到來</div>
             </div>
           </div>
