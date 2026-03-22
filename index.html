@@ -75,14 +75,14 @@
       gap:12px;
     }
 
+    /* 在這裡將原本的紅底白圈改成使用 circle_fig1.png 圖片 */
     .brand-mark{
       width:42px;
       height:42px;
       border-radius:50%;
-      background:
-        radial-gradient(circle at 30% 30%, #fff 0 18%, transparent 19%),
-        radial-gradient(circle at 70% 30%, #fff 0 18%, transparent 19%),
-        linear-gradient(135deg, var(--accent), var(--accent-3));
+      background-image: url('./circle_fig1.png');
+      background-size: cover;
+      background-position: center;
       box-shadow:var(--shadow-soft);
       opacity:.9;
     }
@@ -803,6 +803,7 @@
   <div class="wrap">
     <header class="top-nav">
       <div class="brand">
+        <!-- 這裡的 div 已經會吃到上方修改過載入 circle_fig1.png 的 CSS 規則 -->
         <div class="brand-mark" aria-hidden="true"></div>
         <div class="brand-text">
           <strong>賴柏延 & 馬琳</strong>
@@ -826,7 +827,7 @@
       <div class="castle-silhouette"></div>
 
       <div class="hero-inner">
-        <!-- 將檔案名稱改為 bg_fig1.png，並將 background-size 改為 contain 確保完整顯示，加上 no-repeat 與背景底色，並稍微加大 padding 讓圖片有空間呈現 -->
+        <!-- 保留上一步加入的 bg_fig1.png 背景底紋區塊 -->
         <div style="
           background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('./bg_fig1.png');
           background-color: rgba(255, 255, 255, 0.5);
