@@ -124,7 +124,7 @@
       box-shadow:0 12px 22px rgba(68,45,30,.08);
     }
 
-    /* 首頁頂部主視覺：背景圖改為 castle_0.png */
+    /* 將大背景替換為 castle_0.png 並設定 100% 100% 強制延展 */
     .hero{
       position:relative;
       min-height:clamp(500px, 68vw, 820px);
@@ -135,7 +135,7 @@
       background:
         linear-gradient(180deg, rgba(255,255,255,.15), rgba(255,255,255,.05)),
         url("./castle_0.png");
-      background-size:cover;
+      background-size:100% 100%;
       background-position:center;
       background-repeat:no-repeat;
     }
@@ -148,7 +148,7 @@
       border:1px solid rgba(255,255,255,.36);
       background:
         linear-gradient(180deg, rgba(255,255,255,.22), rgba(255,255,255,.04)),
-        radial-gradient(circle at 50% 18%, rgba(255,248,235,.35), transparent 28%);
+        radial-gradient(circle at 50% 18%, rgba(255,248,235,.25), transparent 28%);
       backdrop-filter:blur(1px);
       z-index:0;
     }
@@ -158,17 +158,19 @@
       position:absolute;
       inset:0;
       background:
-        linear-gradient(180deg, rgba(255,255,255,.05), rgba(0,0,0,.16)),
-        radial-gradient(circle at 50% 18%, rgba(255,242,205,.25), transparent 24%);
+        linear-gradient(180deg, rgba(255,255,255,.05), rgba(0,0,0,.08)),
+        radial-gradient(circle at 50% 18%, rgba(255,242,205,.15), transparent 24%);
       z-index:0;
     }
 
     .hero-sparkles,
-    .hero-cloud{
+    .hero-cloud {
       position:absolute;
       pointer-events:none;
       z-index:1;
     }
+
+    /* 已將原本的 .castle-silhouette 及多邊形剪裁（褐色方塊）移除，保留雲朵與星光 */
 
     .hero-sparkles{
       inset:0;
@@ -206,8 +208,6 @@
       transform:scale(.92);
       animation:floatCloud 10s ease-in-out infinite reverse;
     }
-
-    /* 原本的 .castle-silhouette 已被移除，讓背景圖 castle_0.png 成為主角 */
 
     .hero-inner{
       position:relative;
@@ -313,6 +313,16 @@
       overflow:hidden;
     }
 
+    /* 特別替婚禮資訊卡片 (#info) 加入 bg_fig2.png 的背景設定 */
+    #info.card {
+      background: 
+        linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)), 
+        url('./bg_fig2.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
     .card-body{
       padding:24px;
     }
@@ -354,8 +364,9 @@
       padding:16px;
       border-radius:18px;
       border:1px solid rgba(90,70,55,.08);
-      background:rgba(255,255,255,.72);
+      background:rgba(255,255,255,.85); /* 稍微調白一點讓文字更清楚 */
       box-shadow:var(--shadow-soft);
+      backdrop-filter: blur(4px);
     }
 
     .info-key{
@@ -796,9 +807,10 @@
       <div class="hero-sparkles"></div>
       <div class="hero-cloud cloud-left"></div>
       <div class="hero-cloud cloud-right"></div>
-      <!-- 已經將灰色的 <div class="castle-silhouette"></div> 刪除 -->
+      <!-- 拿掉 <div class="castle-silhouette"></div> -->
 
       <div class="hero-inner">
+        <!-- 保留原本的邀請文字浮水印區塊 -->
         <div style="
           background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('./bg_fig1.png');
           background-color: rgba(255, 255, 255, 0.5);
@@ -844,12 +856,8 @@
     </section>
 
     <section class="grid two">
-      <!-- 在「婚禮資訊」的卡片加上 bg_fig2.png 作為背景圖，並疊加 90% 白底讓文字可讀 -->
-      <article class="card reveal reveal-left" id="info" style="
-        background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('./bg_fig2.png');
-        background-size: cover;
-        background-position: center;
-      ">
+      <!-- 婚禮資訊卡片，CSS中已為 #info 加入 bg_fig2.png -->
+      <article class="card reveal reveal-left" id="info">
         <div class="card-body">
           <div class="section-head">
             <span class="section-tag">WEDDING DETAILS</span>
