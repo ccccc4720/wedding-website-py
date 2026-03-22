@@ -131,7 +131,7 @@
       overflow:hidden;
       box-shadow:0 20px 50px rgba(60,38,20,.12);
       isolation:isolate;
-      background: linear-gradient(180deg, rgba(246, 239, 230, 0.85), rgba(246, 239, 230, 0.4));
+      background: linear-gradient(180deg, rgba(246, 239, 230, 0.95) 0%, rgba(246, 239, 230, 0.15) 100%);
     }
 
     .hero::before{
@@ -140,20 +140,7 @@
       inset:12px;
       border-radius:26px;
       border:1px solid rgba(255,255,255,.36);
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.22), rgba(255,255,255,.04)),
-        radial-gradient(circle at 50% 18%, rgba(255,248,235,.35), transparent 28%);
       backdrop-filter:blur(1px);
-      z-index:0;
-    }
-
-    .hero::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.05), rgba(0,0,0,.16)),
-        radial-gradient(circle at 50% 18%, rgba(255,242,205,.25), transparent 24%);
       z-index:0;
     }
 
@@ -202,7 +189,6 @@
       animation:floatCloud 10s ease-in-out infinite reverse;
     }
 
-    /* 城堡背景漸層：保留左右羽化，加入上方5%至下方85%的透明度漸層，並利用 mask-composite 交疊 */
     .castle-silhouette{
       top: 0;
       left: 0;
@@ -211,14 +197,8 @@
       height: 100%;
       background: url('./castle_0.png') no-repeat center bottom;
       background-size: auto 100%;
-      -webkit-mask-image: 
-        linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.85) 100%),
-        linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
-      -webkit-mask-composite: source-in;
-      mask-image: 
-        linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.85) 100%),
-        linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
-      mask-composite: intersect;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
     }
 
     .hero-inner{
@@ -919,11 +899,7 @@
 
             <div class="polaroid">
               <div class="marquee-container">
-                <div class="marquee-track" id="asideMarquee">
-                  <img src="./跑馬燈_0/1.jpg" alt="Slide 1" onerror="this.src='./Fig1.png'">
-                  <img src="./跑馬燈_0/2.jpg" alt="Slide 2" onerror="this.src='./Fig2.png'">
-                  <img src="./跑馬燈_0/3.jpg" alt="Slide 3" onerror="this.src='./Fig3.png'">
-                </div>
+                <div class="marquee-track" id="asideMarquee"></div>
               </div>
               <div class="polaroid-note">Save the Date ・ 2026.05.30</div>
             </div>
@@ -1007,38 +983,10 @@
         </div>
 
         <div class="carousel-shell">
-          <div class="carousel" id="photoCarousel">
-            <!-- 已經將這裡的圖片路徑換成「婚禮相簿」資料夾 -->
-            <div class="slide">
-              <img src="./婚禮相簿/1.jpg" alt="Photo 1" onerror="this.src='./Fig1.png'">
-              <div class="slide-caption">Fig.01 ・ 一起收藏此刻</div>
-            </div>
-            <div class="slide">
-              <img src="./婚禮相簿/2.jpg" alt="Photo 2" onerror="this.src='./Fig2.png'">
-              <div class="slide-caption">Fig.02 ・ 日常裡的溫柔</div>
-            </div>
-            <div class="slide">
-              <img src="./婚禮相簿/3.jpg" alt="Photo 3" onerror="this.src='./Fig3.png'">
-              <div class="slide-caption">Fig.03 ・ 城堡般的心情</div>
-            </div>
-            <div class="slide">
-              <img src="./婚禮相簿/4.jpg" alt="Photo 4" onerror="this.src='./Fig4.png'">
-              <div class="slide-caption">Fig.04 ・ 童話感的小片段</div>
-            </div>
-            <div class="slide">
-              <img src="./婚禮相簿/5.jpg" alt="Photo 5" onerror="this.src='./Fig5.png'">
-              <div class="slide-caption">Fig.05 ・ 等待那一天到來</div>
-            </div>
-          </div>
+          <div class="carousel" id="photoCarousel"></div>
 
           <div class="carousel-nav">
-            <div class="dotbar" id="dotbar">
-              <span class="dot active"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
-            </div>
+            <div class="dotbar" id="dotbar"></div>
 
             <div class="carousel-buttons">
               <button class="btn btn-secondary" id="prevBtn" type="button">← 上一張</button>
@@ -1109,7 +1057,65 @@
   </div>
 
   <script>
-    // 倒數計時
+    // ==========================================
+    // 1. 設定「婚禮相簿」的照片清單（根據截圖內容補齊）
+    // ==========================================
+    const albumFolder = "./婚禮相簿/";
+    const albumFiles = [
+      "IMG_1317.HEIC",
+      "IMG_1374.HEIC",
+      "IMG_5750.HEIC",
+      "IMG_5878.heic",
+      "IMG_5887.HEIC",
+      "IMG_5897.JPG",
+      "classicu 2026-02-20 140519F5FFD32C3985.JPG",
+      "classicu 2026-02-20 1421218AC6BE34450F.JPG",
+      "classicu 2026-02-20 142856EB22426B9DAD.JPG",
+      "classicu 2026-02-20 170937A021D09304AD.JPG",
+      "classicu 2026-02-20 173149B23E89B76D71.JPG"
+    ];
+
+    // ==========================================
+    // 2. 設定「邀請你來 (跑馬燈)」的照片清單（根據截圖內容補齊）
+    // ==========================================
+    const marqueeFolder = "./跑馬燈_0/";
+    const marqueeFiles = [
+      "IMG_5897.JPG",
+      "circle_fig1.png"
+    ];
+
+    // ==========================================
+    // 自動生成相簿與跑馬燈畫面
+    // ==========================================
+    const carouselContainer = document.getElementById("photoCarousel");
+    const dotbar = document.getElementById("dotbar");
+
+    albumFiles.forEach((photo, index) => {
+      const slide = document.createElement("div");
+      slide.className = "slide";
+      slide.innerHTML = `
+        <img src="${albumFolder}${photo}" alt="Gallery Image ${index + 1}" onerror="this.style.display='none'">
+        <div class="slide-caption">Fig.${String(index + 1).padStart(2, "0")} ・ 一起收藏此刻</div>
+      `;
+      carouselContainer.appendChild(slide);
+
+      const dot = document.createElement("span");
+      dot.className = "dot" + (index === 0 ? " active" : "");
+      dotbar.appendChild(dot);
+    });
+
+    const asideMarquee = document.getElementById("asideMarquee");
+    marqueeFiles.forEach((photo, index) => {
+      const img = document.createElement("img");
+      img.src = `${marqueeFolder}${photo}`;
+      img.alt = `Marquee ${index + 1}`;
+      img.onerror = function() { this.style.display='none'; };
+      asideMarquee.appendChild(img);
+    });
+
+    // ==========================================
+    // 倒數計時與互動邏輯
+    // ==========================================
     const weddingDate = new Date("2026-05-30T00:00:00+08:00").getTime();
 
     function updateCountdown() {
@@ -1143,7 +1149,6 @@
     updateCountdown();
     setInterval(updateCountdown, 1000);
 
-    // 區塊進場動畫
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -1154,9 +1159,7 @@
 
     document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
-    // 照片相簿輪播
-    const carousel = document.getElementById("photoCarousel");
-    const slides = Array.from(carousel.querySelectorAll(".slide"));
+    const slides = Array.from(carouselContainer.querySelectorAll(".slide"));
     const dots = Array.from(document.querySelectorAll(".dot"));
     const prevBtn = document.getElementById("prevBtn");
     const nextBtn = document.getElementById("nextBtn");
@@ -1182,10 +1185,10 @@
     prevBtn.addEventListener("click", () => goToSlide(currentIndex - 1));
     nextBtn.addEventListener("click", () => goToSlide(currentIndex + 1));
 
-    carousel.addEventListener("scroll", () => {
+    carouselContainer.addEventListener("scroll", () => {
       let closestIndex = 0;
       let closestDistance = Infinity;
-      const carouselLeft = carousel.getBoundingClientRect().left;
+      const carouselLeft = carouselContainer.getBoundingClientRect().left;
 
       slides.forEach((slide, i) => {
         const distance = Math.abs(slide.getBoundingClientRect().left - carouselLeft - 10);
@@ -1203,8 +1206,6 @@
       dot.addEventListener("click", () => goToSlide(i));
     });
 
-    // 側邊欄邀請卡：自動輪播跑馬燈邏輯
-    const asideMarquee = document.getElementById("asideMarquee");
     if (asideMarquee) {
       const marqueeImages = asideMarquee.querySelectorAll("img");
       let currentMarqueeIndex = 0;
@@ -1217,7 +1218,6 @@
         }
       }, 3500);
     }
-
   </script>
 </body>
 </html>
