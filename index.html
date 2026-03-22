@@ -826,10 +826,25 @@
       <div class="castle-silhouette"></div>
 
       <div class="hero-inner">
-        <div class="hero-badge">FAIRYTALE WEDDING</div>
-        <h1 class="hero-title">賴柏延 & 馬琳</h1>
-        <div class="hero-meta">2026 / 05 / 30 ・ 台中旌旗教會</div>
-        <div class="hero-sub">在溫柔的紙感與微微發光的城堡氛圍裡，我們想把這份喜悅分享給你。</div>
+        <!-- 在這裡加入了帶有 bg_fig.png 浮水印的區塊 -->
+        <div style="
+          background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('./bg_fig.png');
+          background-size: cover;
+          background-position: center;
+          padding: 30px 40px;
+          border-radius: 24px;
+          box-shadow: var(--shadow-soft);
+          border: 1px solid rgba(255, 255, 255, 0.6);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: min(100%, 460px);
+        ">
+          <div class="hero-badge">FAIRYTALE WEDDING</div>
+          <h1 class="hero-title">賴柏延 & 馬琳</h1>
+          <div class="hero-meta">2026 / 05 / 30 ・ 台中旌旗教會</div>
+          <div class="hero-sub">在溫柔的紙感與微微發光的城堡氛圍裡，我們想把這份喜悅分享給你。</div>
+        </div>
 
         <div class="countdown-wrap">
           <div class="countdown">
