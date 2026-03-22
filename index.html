@@ -75,7 +75,6 @@
       gap:12px;
     }
 
-    /* 使用自訂的 circle_fig1.png 作為 Logo */
     .brand-mark{
       width:42px;
       height:42px;
@@ -125,7 +124,7 @@
       box-shadow:0 12px 22px rgba(68,45,30,.08);
     }
 
-    /* 將大背景換成 castle_0.png */
+    /* 首頁頂部主視覺：背景圖改為 castle_0.png */
     .hero{
       position:relative;
       min-height:clamp(500px, 68vw, 820px);
@@ -134,7 +133,7 @@
       box-shadow:0 20px 50px rgba(60,38,20,.12);
       isolation:isolate;
       background:
-        linear-gradient(180deg, rgba(255,255,255,.22), rgba(255,255,255,.08)),
+        linear-gradient(180deg, rgba(255,255,255,.15), rgba(255,255,255,.05)),
         url("./castle_0.png");
       background-size:cover;
       background-position:center;
@@ -170,8 +169,6 @@
       pointer-events:none;
       z-index:1;
     }
-
-    /* 移除了原本的 .castle-silhouette 相關 CSS，雲朵特效則保留 */
 
     .hero-sparkles{
       inset:0;
@@ -209,6 +206,8 @@
       transform:scale(.92);
       animation:floatCloud 10s ease-in-out infinite reverse;
     }
+
+    /* 原本的 .castle-silhouette 已被移除，讓背景圖 castle_0.png 成為主角 */
 
     .hero-inner{
       position:relative;
@@ -797,10 +796,9 @@
       <div class="hero-sparkles"></div>
       <div class="hero-cloud cloud-left"></div>
       <div class="hero-cloud cloud-right"></div>
-      <!-- 這裡的 div class="castle-silhouette" 已經拿掉 -->
+      <!-- 已經將灰色的 <div class="castle-silhouette"></div> 刪除 -->
 
       <div class="hero-inner">
-        <!-- 先前修改的半透明內文區塊 -->
         <div style="
           background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('./bg_fig1.png');
           background-color: rgba(255, 255, 255, 0.5);
@@ -846,9 +844,9 @@
     </section>
 
     <section class="grid two">
-      <!-- 在「婚禮資訊」的 article 加上了 bg_fig2.png 的背景與半透明濾鏡 -->
+      <!-- 在「婚禮資訊」的卡片加上 bg_fig2.png 作為背景圖，並疊加 90% 白底讓文字可讀 -->
       <article class="card reveal reveal-left" id="info" style="
-        background-image: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), url('./bg_fig2.png');
+        background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('./bg_fig2.png');
         background-size: cover;
         background-position: center;
       ">
