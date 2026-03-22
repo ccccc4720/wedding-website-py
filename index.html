@@ -1044,3 +1044,132 @@
 
     <section class="card reveal" style="margin-top:22px;">
       <div class="card-body">
+        <div class="section-head">
+          <span class="section-tag">FAQ</span>
+          <h2>小提醒</h2>
+          <p class="section-desc">一些婚禮當天可能會需要的小資訊。</p>
+        </div>
+
+        <div class="faq-grid">
+          <div class="faq-item">
+            <h3>服裝建議</h3>
+            <p>歡迎以簡約、典雅、文青色系穿搭為主，一起留下溫柔好看的畫面。</p>
+          </div>
+          <div class="faq-item">
+            <h3>攜伴與座位</h3>
+            <p>若有攜伴需求，請在表單中填寫，我們會依回覆安排座位。</p>
+          </div>
+          <div class="faq-item">
+            <h3>表單填寫</h3>
+            <p>若嵌入表單在部分手機瀏覽器顯示較慢，可直接使用上方按鈕開啟完整表單頁面。</p>
+          </div>
+          <div class="faq-item">
+            <h3>最重要的事</h3>
+            <p>你們的到來，就是給我們最珍貴的祝福。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="reveal">
+      © 2026 賴柏延 & 馬琳 ・ Designed with love
+    </footer>
+  </div>
+
+  <script>
+    // 倒數計時
+    const weddingDate = new Date("2026-05-30T00:00:00+08:00").getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+
+      const daysEl = document.getElementById("days");
+      const hoursEl = document.getElementById("hours");
+      const minutesEl = document.getElementById("minutes");
+      const secondsEl = document.getElementById("seconds");
+
+      if (distance <= 0) {
+        daysEl.textContent = "0";
+        hoursEl.textContent = "0";
+        minutesEl.textContent = "0";
+        secondsEl.textContent = "0";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((distance / (1000 * 60)) % 60);
+      const seconds = Math.floor((distance / 1000) % 60);
+
+      daysEl.textContent = days;
+      hoursEl.textContent = String(hours).padStart(2, "0");
+      minutesEl.textContent = String(minutes).padStart(2, "0");
+      secondsEl.textContent = String(seconds).padStart(2, "0");
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // 區塊進場動畫
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in-view");
+        }
+      });
+    }, { threshold: 0.16 });
+
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+    // 輪播
+    const carousel = document.getElementById("photoCarousel");
+    const slides = Array.from(carousel.querySelectorAll(".slide"));
+    const dots = Array.from(document.querySelectorAll(".dot"));
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+
+    let currentIndex = 0;
+
+    function goToSlide(index) {
+      currentIndex = Math.max(0, Math.min(index, slides.length - 1));
+      slides[currentIndex].scrollIntoView({
+        behavior: "smooth",
+        inline: "center",
+        block: "nearest"
+      });
+      updateDots();
+    }
+
+    function updateDots() {
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === currentIndex);
+      });
+    }
+
+    prevBtn.addEventListener("click", () => goToSlide(currentIndex - 1));
+    nextBtn.addEventListener("click", () => goToSlide(currentIndex + 1));
+
+    carousel.addEventListener("scroll", () => {
+      let closestIndex = 0;
+      let closestDistance = Infinity;
+      const carouselLeft = carousel.getBoundingClientRect().left;
+
+      slides.forEach((slide, i) => {
+        const distance = Math.abs(slide.getBoundingClientRect().left - carouselLeft - 10);
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestIndex = i;
+        }
+      });
+
+      currentIndex = closestIndex;
+      updateDots();
+    });
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener("click", () => goToSlide(i));
+    });
+  </script>
+</body>
+</html>
