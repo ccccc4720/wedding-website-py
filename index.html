@@ -75,7 +75,7 @@
       gap:12px;
     }
 
-    /* 左上角 Logo 圖片 */
+    /* 使用自訂的 circle_fig1.png 作為 Logo */
     .brand-mark{
       width:42px;
       height:42px;
@@ -125,6 +125,7 @@
       box-shadow:0 12px 22px rgba(68,45,30,.08);
     }
 
+    /* 將大背景換成 castle_0.png */
     .hero{
       position:relative;
       min-height:clamp(500px, 68vw, 820px);
@@ -134,7 +135,7 @@
       isolation:isolate;
       background:
         linear-gradient(180deg, rgba(255,255,255,.22), rgba(255,255,255,.08)),
-        url("./bg_scene.png");
+        url("./castle_0.png");
       background-size:cover;
       background-position:center;
       background-repeat:no-repeat;
@@ -164,12 +165,13 @@
     }
 
     .hero-sparkles,
-    .hero-cloud,
-    .castle-silhouette{
+    .hero-cloud{
       position:absolute;
       pointer-events:none;
       z-index:1;
     }
+
+    /* 移除了原本的 .castle-silhouette 相關 CSS，雲朵特效則保留 */
 
     .hero-sparkles{
       inset:0;
@@ -206,16 +208,6 @@
       right:6%;
       transform:scale(.92);
       animation:floatCloud 10s ease-in-out infinite reverse;
-    }
-
-    /* 將底部灰城堡圖塊換成 castle_0.png */
-    .castle-silhouette{
-      left:0;
-      right:0;
-      bottom:0;
-      height:30%;
-      background: url('./castle_0.png') bottom center / contain no-repeat;
-      z-index: 1;
     }
 
     .hero-inner{
@@ -324,13 +316,6 @@
 
     .card-body{
       padding:24px;
-    }
-
-    /* 婚禮資訊專屬背景設定 */
-    #info .card-body {
-      background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('./bg_fig2.png');
-      background-size: cover;
-      background-position: center;
     }
 
     .section-head{
@@ -812,9 +797,10 @@
       <div class="hero-sparkles"></div>
       <div class="hero-cloud cloud-left"></div>
       <div class="hero-cloud cloud-right"></div>
-      <div class="castle-silhouette"></div>
+      <!-- 這裡的 div class="castle-silhouette" 已經拿掉 -->
 
       <div class="hero-inner">
+        <!-- 先前修改的半透明內文區塊 -->
         <div style="
           background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('./bg_fig1.png');
           background-color: rgba(255, 255, 255, 0.5);
@@ -860,7 +846,12 @@
     </section>
 
     <section class="grid two">
-      <article class="card reveal reveal-left" id="info">
+      <!-- 在「婚禮資訊」的 article 加上了 bg_fig2.png 的背景與半透明濾鏡 -->
+      <article class="card reveal reveal-left" id="info" style="
+        background-image: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)), url('./bg_fig2.png');
+        background-size: cover;
+        background-position: center;
+      ">
         <div class="card-body">
           <div class="section-head">
             <span class="section-tag">WEDDING DETAILS</span>
@@ -1053,132 +1044,3 @@
 
     <section class="card reveal" style="margin-top:22px;">
       <div class="card-body">
-        <div class="section-head">
-          <span class="section-tag">FAQ</span>
-          <h2>小提醒</h2>
-          <p class="section-desc">一些婚禮當天可能會需要的小資訊。</p>
-        </div>
-
-        <div class="faq-grid">
-          <div class="faq-item">
-            <h3>服裝建議</h3>
-            <p>歡迎以簡約、典雅、文青色系穿搭為主，一起留下溫柔好看的畫面。</p>
-          </div>
-          <div class="faq-item">
-            <h3>攜伴與座位</h3>
-            <p>若有攜伴需求，請在表單中填寫，我們會依回覆安排座位。</p>
-          </div>
-          <div class="faq-item">
-            <h3>表單填寫</h3>
-            <p>若嵌入表單在部分手機瀏覽器顯示較慢，可直接使用上方按鈕開啟完整表單頁面。</p>
-          </div>
-          <div class="faq-item">
-            <h3>最重要的事</h3>
-            <p>你們的到來，就是給我們最珍貴的祝福。</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer class="reveal">
-      © 2026 賴柏延 & 馬琳 ・ Designed with love
-    </footer>
-  </div>
-
-  <script>
-    // 倒數計時
-    const weddingDate = new Date("2026-05-30T00:00:00+08:00").getTime();
-
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const distance = weddingDate - now;
-
-      const daysEl = document.getElementById("days");
-      const hoursEl = document.getElementById("hours");
-      const minutesEl = document.getElementById("minutes");
-      const secondsEl = document.getElementById("seconds");
-
-      if (distance <= 0) {
-        daysEl.textContent = "0";
-        hoursEl.textContent = "0";
-        minutesEl.textContent = "0";
-        secondsEl.textContent = "0";
-        return;
-      }
-
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((distance / (1000 * 60)) % 60);
-      const seconds = Math.floor((distance / 1000) % 60);
-
-      daysEl.textContent = days;
-      hoursEl.textContent = String(hours).padStart(2, "0");
-      minutesEl.textContent = String(minutes).padStart(2, "0");
-      secondsEl.textContent = String(seconds).padStart(2, "0");
-    }
-
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-
-    // 區塊進場動畫
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("in-view");
-        }
-      });
-    }, { threshold: 0.16 });
-
-    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
-
-    // 輪播
-    const carousel = document.getElementById("photoCarousel");
-    const slides = Array.from(carousel.querySelectorAll(".slide"));
-    const dots = Array.from(document.querySelectorAll(".dot"));
-    const prevBtn = document.getElementById("prevBtn");
-    const nextBtn = document.getElementById("nextBtn");
-
-    let currentIndex = 0;
-
-    function goToSlide(index) {
-      currentIndex = Math.max(0, Math.min(index, slides.length - 1));
-      slides[currentIndex].scrollIntoView({
-        behavior: "smooth",
-        inline: "center",
-        block: "nearest"
-      });
-      updateDots();
-    }
-
-    function updateDots() {
-      dots.forEach((dot, i) => {
-        dot.classList.toggle("active", i === currentIndex);
-      });
-    }
-
-    prevBtn.addEventListener("click", () => goToSlide(currentIndex - 1));
-    nextBtn.addEventListener("click", () => goToSlide(currentIndex + 1));
-
-    carousel.addEventListener("scroll", () => {
-      let closestIndex = 0;
-      let closestDistance = Infinity;
-      const carouselLeft = carousel.getBoundingClientRect().left;
-
-      slides.forEach((slide, i) => {
-        const distance = Math.abs(slide.getBoundingClientRect().left - carouselLeft - 10);
-        if (distance < closestDistance) {
-          closestDistance = distance;
-          closestIndex = i;
-        }
-      });
-
-      currentIndex = closestIndex;
-      updateDots();
-    });
-
-    dots.forEach((dot, i) => {
-      dot.addEventListener("click", () => goToSlide(i));
-    });
-  </script>
-</body>
-</html>
