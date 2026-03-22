@@ -75,6 +75,7 @@
       gap:12px;
     }
 
+    /* 左上角 Logo 圖片 */
     .brand-mark{
       width:42px;
       height:42px;
@@ -124,7 +125,6 @@
       box-shadow:0 12px 22px rgba(68,45,30,.08);
     }
 
-    /* 將主背景圖改為 circle_fig1.png */
     .hero{
       position:relative;
       min-height:clamp(500px, 68vw, 820px);
@@ -134,7 +134,7 @@
       isolation:isolate;
       background:
         linear-gradient(180deg, rgba(255,255,255,.22), rgba(255,255,255,.08)),
-        url("./circle_fig1.png");
+        url("./bg_scene.png");
       background-size:cover;
       background-position:center;
       background-repeat:no-repeat;
@@ -208,9 +208,14 @@
       animation:floatCloud 10s ease-in-out infinite reverse;
     }
 
-    /* 隱藏城堡背景剪影 */
+    /* 將底部灰城堡圖塊換成 castle_0.png */
     .castle-silhouette{
-      display: none;
+      left:0;
+      right:0;
+      bottom:0;
+      height:30%;
+      background: url('./castle_0.png') bottom center / contain no-repeat;
+      z-index: 1;
     }
 
     .hero-inner{
@@ -317,17 +322,15 @@
       overflow:hidden;
     }
 
-    /* 為婚禮資訊（id="info"）專屬設定 bg_fig2.png 背景 */
-    #info.card {
-      background:
-        linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
-        url("./bg_fig2.png");
-      background-size: cover;
-      background-position: center;
-    }
-
     .card-body{
       padding:24px;
+    }
+
+    /* 婚禮資訊專屬背景設定 */
+    #info .card-body {
+      background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('./bg_fig2.png');
+      background-size: cover;
+      background-position: center;
     }
 
     .section-head{
