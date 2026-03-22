@@ -131,7 +131,8 @@
       overflow:hidden;
       box-shadow:0 20px 50px rgba(60,38,20,.12);
       isolation:isolate;
-      background: linear-gradient(180deg, rgba(255,255,255,.6), rgba(255,255,255,.2));
+      /* 城堡背景的底色改為卡其白色調 */
+      background: linear-gradient(180deg, rgba(246, 239, 230, 0.85), rgba(246, 239, 230, 0.4));
     }
 
     .hero::before{
@@ -202,7 +203,6 @@
       animation:floatCloud 10s ease-in-out infinite reverse;
     }
 
-    /* 城堡背景：加入左右漸層遮罩讓邊緣柔和融入 */
     .castle-silhouette{
       top: 0;
       left: 0;
@@ -398,7 +398,6 @@
       overflow: hidden;
     }
 
-    /* 跑馬燈外框與動畫設定 */
     .marquee-container {
       width: 100%;
       aspect-ratio: 4/5;
@@ -913,10 +912,8 @@
             </div>
 
             <div class="polaroid">
-              <!-- 將單張靜態照片改為跑馬燈容器 -->
               <div class="marquee-container">
                 <div class="marquee-track" id="asideMarquee">
-                  <!-- 請將照片放進「跑馬燈_0」資料夾，您可在此增加或修改檔名 -->
                   <img src="./跑馬燈_0/1.jpg" alt="Slide 1" onerror="this.src='./Fig1.png'">
                   <img src="./跑馬燈_0/2.jpg" alt="Slide 2" onerror="this.src='./Fig2.png'">
                   <img src="./跑馬燈_0/3.jpg" alt="Slide 3" onerror="this.src='./Fig3.png'">
@@ -936,7 +933,6 @@
         <div class="section-head">
           <span class="section-tag">RSVP CARD</span>
           <h2>出席回覆</h2>
-          <p class="section-desc">表單已嵌入網站中，風格與整體頁面一致。也可以直接點按鈕開啟填寫。</p>
         </div>
 
         <div class="rsvp-shell">
@@ -982,14 +978,17 @@
             <p>建議婚禮開始前 20–30 分鐘到場，方便報到與入座，也能更從容地拍照與休息。</p>
           </div>
 
+          <!-- 交通資訊修改：加入國道一號與正德醫院停車場資訊 -->
           <div class="traffic-card">
             <h3>自行開車</h3>
-            <p>建議提早出發，並預留停車與步行時間。婚禮當日請依現場停車與動線指引入場。</p>
+            <p>國道一號請下<strong>南屯交流道</strong>（往台中方向），直行五權西路二段後右轉益豐路四段即可抵達。</p>
+            <p>建議將車輛停放於教會旁的<strong>正德醫院地下停車場</strong>（計時收費約 $40/小時）。</p>
           </div>
 
+          <!-- 交通資訊修改：加入具體公車與高鐵轉乘資訊 -->
           <div class="traffic-card">
             <h3>大眾運輸</h3>
-            <p>外縣市賓客可由高鐵台中站轉乘公車或計程車前往。台中市區內可搭乘公車至南屯區周邊，再步行抵達。</p>
+            <p>・<strong>台中火車站</strong>：請搭乘 75 號公車至「黎明向上路口」，步行約 10 分鐘。<br>・<strong>高鐵台中站</strong>：請搭乘 160 號快捷公車至「向上永春東七路」，步行約 7 分鐘。</p>
           </div>
         </div>
       </div>
@@ -1206,7 +1205,6 @@
       let currentMarqueeIndex = 0;
       const totalMarqueeImages = marqueeImages.length;
 
-      // 設定每 3.5 秒切換一張照片
       setInterval(() => {
         if (totalMarqueeImages > 1) {
           currentMarqueeIndex = (currentMarqueeIndex + 1) % totalMarqueeImages;
