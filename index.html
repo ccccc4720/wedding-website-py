@@ -131,7 +131,6 @@
       overflow:hidden;
       box-shadow:0 20px 50px rgba(60,38,20,.12);
       isolation:isolate;
-      /* 拿掉原本的 bg_scene.png，改為乾淨的漸層底色，讓新城堡能有留白空間 */
       background: linear-gradient(180deg, rgba(255,255,255,.6), rgba(255,255,255,.2));
     }
 
@@ -203,7 +202,7 @@
       animation:floatCloud 10s ease-in-out infinite reverse;
     }
 
-    /* 將原本的色塊剪影替換成 castle_0.png，設定垂直 100%、水平保持比例居中 */
+    /* 城堡背景：加入左右漸層遮罩讓邊緣柔和融入 */
     .castle-silhouette{
       top: 0;
       left: 0;
@@ -212,6 +211,8 @@
       height: 100%;
       background: url('./castle_0.png') no-repeat center bottom;
       background-size: auto 100%;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
     }
 
     .hero-inner{
@@ -393,13 +394,32 @@
       width:min(100%, 360px);
       margin:0 auto;
       transform:rotate(-2deg);
+      position: relative;
+      overflow: hidden;
     }
 
-    .polaroid img{
-      border-radius:12px;
-      width:100%;
-      aspect-ratio:4/5;
-      object-fit:cover;
+    /* 跑馬燈外框與動畫設定 */
+    .marquee-container {
+      width: 100%;
+      aspect-ratio: 4/5;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .marquee-track {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s ease-in-out;
+    }
+
+    .marquee-track img {
+      flex: 0 0 100%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
     }
 
     .polaroid-note{
@@ -849,7 +869,6 @@
     </section>
 
     <section class="grid two">
-      <!-- 在這裡為婚禮資訊卡片加上 bg_fig2.png 作為底紋背景 -->
       <article class="card reveal reveal-left" id="info" style="
         background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('./bg_fig2.png') no-repeat center / cover;
       ">
@@ -894,7 +913,15 @@
             </div>
 
             <div class="polaroid">
-              <img src="./Fig1.png" alt="婚禮主視覺照片">
+              <!-- 將單張靜態照片改為跑馬燈容器 -->
+              <div class="marquee-container">
+                <div class="marquee-track" id="asideMarquee">
+                  <!-- 請將照片放進「跑馬燈_0」資料夾，您可在此增加或修改檔名 -->
+                  <img src="./跑馬燈_0/1.jpg" alt="Slide 1" onerror="this.src='./Fig1.png'">
+                  <img src="./跑馬燈_0/2.jpg" alt="Slide 2" onerror="this.src='./Fig2.png'">
+                  <img src="./跑馬燈_0/3.jpg" alt="Slide 3" onerror="this.src='./Fig3.png'">
+                </div>
+              </div>
               <div class="polaroid-note">Save the Date ・ 2026.05.30</div>
             </div>
           </div>
@@ -1123,7 +1150,7 @@
 
     document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
-    // 輪播
+    // 照片相簿輪播
     const carousel = document.getElementById("photoCarousel");
     const slides = Array.from(carousel.querySelectorAll(".slide"));
     const dots = Array.from(document.querySelectorAll(".dot"));
@@ -1171,6 +1198,23 @@
     dots.forEach((dot, i) => {
       dot.addEventListener("click", () => goToSlide(i));
     });
+
+    // 側邊欄邀請卡：自動輪播跑馬燈邏輯
+    const asideMarquee = document.getElementById("asideMarquee");
+    if (asideMarquee) {
+      const marqueeImages = asideMarquee.querySelectorAll("img");
+      let currentMarqueeIndex = 0;
+      const totalMarqueeImages = marqueeImages.length;
+
+      // 設定每 3.5 秒切換一張照片
+      setInterval(() => {
+        if (totalMarqueeImages > 1) {
+          currentMarqueeIndex = (currentMarqueeIndex + 1) % totalMarqueeImages;
+          asideMarquee.style.transform = `translateX(-${currentMarqueeIndex * 100}%)`;
+        }
+      }, 3500);
+    }
+
   </script>
 </body>
 </html>
