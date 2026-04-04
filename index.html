@@ -426,8 +426,8 @@
       const slide = document.createElement("div");
       slide.className = "slide";
       slide.innerHTML =
-        '<img src="' + albumFolder + photo + '" alt="Gallery ' + (index+1) + '" onerror="this.style.display=\'none\'">' +
-        '<div class="slide-caption">Fig.' + String(index+1).padStart(2,"0") + ' ・ 一起收藏此刻</div>';
+        '<img src="' + albumFolder + photo + '" alt="Gallery ' + (index+1) + '" onerror="this.style.display=\'none\'">'; // +
+        //'<div class="slide-caption">Fig.' + String(index+1).padStart(2,"0") + ' ・ 一起收藏此刻</div>';
       carouselContainer.appendChild(slide);
       const dot = document.createElement("span");
       dot.className = "dot" + (index === 0 ? " active" : "");
