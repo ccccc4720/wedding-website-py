@@ -4,781 +4,138 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>賴柏延 & 馬琳｜婚禮邀請</title>
-
   <meta property="og:type" content="website" />
   <meta property="og:title" content="賴柏延 & 馬琳｜婚禮邀請" />
   <meta property="og:description" content="誠摯邀請您參加賴柏延與馬琳的婚禮｜2026/05/30｜台中旌旗教會" />
   <meta property="og:image" content="./Fig1.png" />
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Special+Elite&display=swap" rel="stylesheet">
-
   <style>
     :root{
-      --bg:#f6efe6;
-      --bg-2:#efe4d6;
-      --card:#fffdf9;
-      --ink:#2f2a27;
-      --muted:#75685d;
-      --line:rgba(90,70,55,.10);
-      --accent:#b54848;
-      --accent-2:#d6ab54;
-      --accent-3:#7a3d3d;
-      --shadow:0 14px 36px rgba(68,45,30,.08);
-      --shadow-soft:0 8px 22px rgba(68,45,30,.05);
-      --radius:24px;
-      --radius-sm:18px;
-      --max:1100px;
+      --bg:#f6efe6; --bg-2:#efe4d6; --card:#fffdf9; --ink:#2f2a27; --muted:#75685d;
+      --line:rgba(90,70,55,.10); --accent:#b54848; --accent-2:#d6ab54; --accent-3:#7a3d3d;
+      --shadow:0 14px 36px rgba(68,45,30,.08); --shadow-soft:0 8px 22px rgba(68,45,30,.05);
+      --radius:24px; --radius-sm:18px; --max:1100px;
     }
-
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
-      margin:0;
-      color:var(--ink);
-      font-family:"Noto Serif TC", serif;
+      margin:0; color:var(--ink); font-family:"Noto Serif TC",serif;
       background:
-        radial-gradient(circle at top left, rgba(255,255,255,.8), transparent 30%),
-        repeating-linear-gradient(
-          0deg,
-          rgba(110,90,70,.018) 0px,
-          rgba(110,90,70,.018) 1px,
-          transparent 1px,
-          transparent 7px
-        ),
-        linear-gradient(135deg, var(--bg) 0%, var(--bg-2) 100%);
+        radial-gradient(circle at top left,rgba(255,255,255,.8),transparent 30%),
+        repeating-linear-gradient(0deg,rgba(110,90,70,.018) 0px,rgba(110,90,70,.018) 1px,transparent 1px,transparent 7px),
+        linear-gradient(135deg,var(--bg) 0%,var(--bg-2) 100%);
     }
-
     img{display:block;max-width:100%}
     a{text-decoration:none;color:inherit}
     button{font:inherit}
-
-    .wrap{
-      width:min(calc(100% - 28px), var(--max));
-      margin:0 auto;
-      padding:22px 0 40px;
-    }
-
-    .top-nav{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:12px;
-      padding:10px 4px 18px;
-      flex-wrap:wrap;
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-    }
-
-    .brand-mark{
-      width:42px;
-      height:42px;
-      border-radius:50%;
-      background-image: url('./circle_fig1.png');
-      background-size: cover;
-      background-position: center;
-      box-shadow:var(--shadow-soft);
-      opacity:.9;
-    }
-
-    .brand-text{
-      line-height:1.2;
-    }
-
-    .brand-text strong{
-      display:block;
-      font-size:16px;
-    }
-
-    .brand-text span{
-      font-size:12px;
-      color:var(--muted);
-      letter-spacing:.08em;
-    }
-
-    .nav-links{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-
-    .pill{
-      padding:10px 14px;
-      background:rgba(255,255,255,.68);
-      border:1px solid rgba(255,255,255,.7);
-      border-radius:999px;
-      font-size:13px;
-      color:var(--muted);
-      box-shadow:var(--shadow-soft);
-      backdrop-filter:blur(8px);
-      transition:transform .2s ease, box-shadow .2s ease;
-    }
-
-    .pill:hover{
-      transform:translateY(-2px);
-      box-shadow:0 12px 22px rgba(68,45,30,.08);
-    }
-
-    .hero{
-      position:relative;
-      min-height:clamp(500px, 68vw, 820px);
-      border-radius:34px;
-      overflow:hidden;
-      box-shadow:0 20px 50px rgba(60,38,20,.12);
-      isolation:isolate;
-      background: linear-gradient(180deg, rgba(246, 239, 230, 0.95) 0%, rgba(246, 239, 230, 0.15) 100%);
-    }
-
-    .hero::before{
-      content:"";
-      position:absolute;
-      inset:12px;
-      border-radius:26px;
-      border:1px solid rgba(255,255,255,.36);
-      backdrop-filter:blur(1px);
-      z-index:0;
-    }
-
-    .hero-sparkles,
-    .hero-cloud,
-    .castle-silhouette{
-      position:absolute;
-      pointer-events:none;
-      z-index:1;
-    }
-
-    .hero-sparkles{
-      inset:0;
-      background:
-        radial-gradient(circle at 14% 22%, rgba(255,232,165,.95) 0 1.6px, transparent 2.6px),
-        radial-gradient(circle at 21% 16%, rgba(255,255,255,.95) 0 1.4px, transparent 2.4px),
-        radial-gradient(circle at 78% 17%, rgba(255,232,165,.95) 0 1.7px, transparent 2.7px),
-        radial-gradient(circle at 72% 26%, rgba(255,255,255,.95) 0 1.4px, transparent 2.4px),
-        radial-gradient(circle at 58% 12%, rgba(255,240,205,.85) 0 1.2px, transparent 2.2px),
-        radial-gradient(circle at 43% 23%, rgba(255,255,255,.85) 0 1.1px, transparent 2.1px);
-      animation:sparkle 4.5s ease-in-out infinite alternate;
-    }
-
-    .hero-cloud{
-      width:clamp(110px, 18vw, 230px);
-      aspect-ratio:2.4/1;
-      opacity:.82;
-      background:
-        radial-gradient(circle at 22% 60%, rgba(255,255,255,.92) 0 26%, transparent 27%),
-        radial-gradient(circle at 42% 44%, rgba(255,255,255,.95) 0 30%, transparent 31%),
-        radial-gradient(circle at 62% 58%, rgba(255,255,255,.92) 0 24%, transparent 25%),
-        radial-gradient(circle at 78% 62%, rgba(255,255,255,.86) 0 18%, transparent 19%);
-      filter:blur(1px);
-    }
-
-    .cloud-left{
-      top:18%;
-      left:5%;
-      animation:floatCloud 9s ease-in-out infinite;
-    }
-
-    .cloud-right{
-      top:24%;
-      right:6%;
-      transform:scale(.92);
-      animation:floatCloud 10s ease-in-out infinite reverse;
-    }
-
-    .castle-silhouette{
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      height: 100%;
-      background: url('./castle_0.png') no-repeat center bottom;
-      background-size: auto 100%;
-      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
-      mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
-    }
-
-    .hero-inner{
-      position:relative;
-      z-index:2;
-      min-height:clamp(500px, 68vw, 820px);
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      padding:clamp(72px, 10vw, 120px) 22px 40px;
-    }
-
-    .hero-badge{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 14px;
-      border-radius:999px;
-      background:rgba(255,255,255,.68);
-      border:1px solid rgba(255,255,255,.62);
-      color:#7b6658;
-      font-size:12px;
-      letter-spacing:.14em;
-      backdrop-filter:blur(8px);
-      box-shadow:var(--shadow-soft);
-      margin-bottom:18px;
-    }
-
-    .hero-title{
-      font-size:clamp(34px, 5.8vw, 66px);
-      line-height:1.12;
-      margin:0;
-      text-shadow:0 2px 20px rgba(255,255,255,.18);
-    }
-
-    .hero-meta{
-      margin-top:12px;
-      font-size:clamp(15px, 2.1vw, 19px);
-      color:#6f6156;
-    }
-
-    .hero-sub{
-      margin-top:8px;
-      max-width:34ch;
-      color:#7a6b60;
-      font-size:clamp(14px, 2vw, 17px);
-    }
-
-    .countdown-wrap{
-      margin-top:26px;
-      width:min(100%, 620px);
-    }
-
-    .countdown{
-      display:grid;
-      grid-template-columns:repeat(4, 1fr);
-      gap:12px;
-    }
-
-    .count-item{
-      background:rgba(255,255,255,.85);
-      border:1px solid rgba(255,255,255,.72);
-      border-radius:20px;
-      padding:16px 10px;
-      box-shadow:var(--shadow-soft);
-      backdrop-filter:blur(8px);
-    }
-
-    .count-num{
-      font-size:clamp(24px, 4vw, 38px);
-      font-weight:700;
-      line-height:1;
-    }
-
-    .count-label{
-      margin-top:8px;
-      color:var(--muted);
-      font-size:12px;
-      letter-spacing:.1em;
-    }
-
-    .grid{
-      display:grid;
-      gap:18px;
-      margin-top:22px;
-    }
-
-    .grid.two{
-      grid-template-columns:1.05fr .95fr;
-    }
-
-    .grid.one{
-      grid-template-columns:1fr;
-    }
-
-    .card{
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.95), rgba(249,243,236,.95));
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      overflow:hidden;
-    }
-
-    .card-body{
-      padding:24px;
-    }
-
-    .section-head{
-      margin-bottom:14px;
-    }
-
-    .section-tag{
-      display:inline-block;
-      font-family:"Special Elite", monospace;
-      font-size:12px;
-      letter-spacing:.12em;
-      color:var(--muted);
-      margin-bottom:8px;
-    }
-
-    .section-head h2{
-      margin:0;
-      font-size:clamp(24px, 3vw, 34px);
-      line-height:1.2;
-    }
-
-    .section-desc{
-      margin:8px 0 0;
-      color:var(--muted);
-      line-height:1.8;
-      font-size:15px;
-    }
-
-    .info-grid{
-      display:grid;
-      grid-template-columns:repeat(2, minmax(0,1fr));
-      gap:14px;
-      margin-top:16px;
-    }
-
-    .info-box{
-      padding:16px;
-      border-radius:18px;
-      border:1px solid rgba(90,70,55,.08);
-      background:rgba(255,255,255,.72);
-      box-shadow:var(--shadow-soft);
-    }
-
-    .info-key{
-      font-family:"Special Elite", monospace;
-      font-size:12px;
-      color:var(--muted);
-      letter-spacing:.12em;
-      margin-bottom:8px;
-    }
-
-    .info-value{
-      line-height:1.8;
-      font-size:15px;
-    }
-
-    .story-card{
-      display:flex;
-      flex-direction:column;
-      justify-content:space-between;
-      height:100%;
-      min-height:100%;
-      position:relative;
-    }
-
-    .polaroid{
-      background:#fff;
-      padding:12px 12px 20px;
-      border-radius:18px;
-      box-shadow:0 12px 26px rgba(68,45,30,.08);
-      width:min(100%, 360px);
-      margin:0 auto;
-      transform:rotate(-2deg);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .marquee-container {
-      width: 100%;
-      aspect-ratio: 4/5;
-      border-radius: 12px;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .marquee-track {
-      display: flex;
-      width: 100%;
-      height: 100%;
-      transition: transform 0.8s ease-in-out;
-    }
-
-    .marquee-track img {
-      flex: 0 0 100%;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 12px;
-    }
-
-    .polaroid-note{
-      margin-top:12px;
-      color:var(--muted);
-      text-align:center;
-      font-size:14px;
-    }
-
-    .sticker{
-      display:inline-block;
-      margin-top:16px;
-      padding:8px 12px;
-      border-radius:999px;
-      background:rgba(214,171,84,.16);
-      color:#8f6e25;
-      font-size:12px;
-      letter-spacing:.08em;
-    }
-
-    .rsvp-shell{
-      border-radius:22px;
-      overflow:hidden;
-      border:1px solid rgba(90,70,55,.08);
-      background:#fffaf3;
-      box-shadow:var(--shadow-soft);
-    }
-
-    .rsvp-top{
-      padding:18px 18px 16px;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.8), rgba(255,255,255,.55)),
-        linear-gradient(135deg, #f9efe2, #f7ead8);
-      border-bottom:1px solid rgba(90,70,55,.08);
-    }
-
-    .rsvp-top strong{
-      display:block;
-      font-size:18px;
-      margin-bottom:6px;
-    }
-
-    .rsvp-top p{
-      margin:0;
-      color:var(--muted);
-      font-size:14px;
-      line-height:1.7;
-    }
-
-    .rsvp-actions{
-      display:flex;
-      gap:10px;
-      margin-top:14px;
-      flex-wrap:wrap;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      padding:12px 16px;
-      border-radius:14px;
-      border:none;
-      cursor:pointer;
-      font-size:15px;
-      transition:transform .2s ease, box-shadow .2s ease, opacity .2s ease;
-    }
-
-    .btn:hover{
-      transform:translateY(-2px);
-    }
-
-    .btn-primary{
-      background:linear-gradient(135deg, #c24c4c, #9f3030);
-      color:#fff;
-      box-shadow:0 12px 22px rgba(178,58,58,.22);
-    }
-
-    .btn-secondary{
-      background:#fff;
-      color:var(--accent);
-      border:1px solid rgba(178,58,58,.18);
-      box-shadow:var(--shadow-soft);
-    }
-
-    .rsvp-embed{
-      position:relative;
-      background:#fff;
-    }
-
-    .rsvp-embed::before{
-      content:"";
-      position:absolute;
-      top:0;
-      left:0;
-      right:0;
-      height:68px;
-      background:linear-gradient(180deg, #fffaf3, #fffdf9);
-      z-index:2;
-      pointer-events:none;
-    }
-
-    .rsvp-embed iframe{
-      width:100%;
-      height:860px;
-      border:0;
-      display:block;
-      background:#fff;
-      filter:contrast(.985) saturate(.96);
-    }
-
-    .traffic-grid{
-      display:grid;
-      grid-template-columns:repeat(2, minmax(0,1fr));
-      gap:14px;
-      margin-top:16px;
-    }
-
-    .traffic-card{
-      background:linear-gradient(180deg, rgba(255,255,255,.92), rgba(250,245,238,.92));
-      border:1px solid rgba(0,0,0,.06);
-      border-radius:18px;
-      padding:16px;
-      box-shadow:var(--shadow-soft);
-    }
-
-    .traffic-card h3{
-      margin:0 0 8px;
-      font-size:18px;
-    }
-
-    .traffic-card p{
-      margin:6px 0;
-      color:var(--muted);
-      line-height:1.8;
-      font-size:15px;
-    }
-
-    .carousel-shell{
-      margin-top:12px;
-    }
-
-    .carousel{
-      display:flex;
-      gap:12px;
-      overflow-x:auto;
-      scroll-snap-type:x mandatory;
-      -webkit-overflow-scrolling:touch;
-      scroll-behavior:smooth;
-      padding:2px 2px 10px;
-    }
-
-    .carousel::-webkit-scrollbar{
-      height:10px;
-    }
-
-    .carousel::-webkit-scrollbar-thumb{
-      background:rgba(90,70,55,.16);
-      border-radius:999px;
-    }
-
-    .slide{
-      flex:0 0 min(78vw, 320px);
-      scroll-snap-align:center;
-      border-radius:22px;
-      overflow:hidden;
-      border:1px solid rgba(0,0,0,.06);
-      background:linear-gradient(180deg, rgba(255,255,255,.96), rgba(248,243,236,.96));
-      box-shadow:0 10px 24px rgba(0,0,0,.06);
-      transform:translateY(0);
-      transition:transform .25s ease, box-shadow .25s ease;
-    }
-
-    .slide:hover{
-      transform:translateY(-4px);
-      box-shadow:0 16px 30px rgba(0,0,0,.08);
-    }
-
-    .slide img{
-      width:100%;
-      aspect-ratio:4/5;
-      object-fit:cover;
-    }
-
-    .slide-caption{
-      padding:12px 14px 14px;
-      color:#7a695c;
-      font-size:14px;
-    }
-
-    .carousel-nav{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:10px;
-      margin-top:12px;
-      flex-wrap:wrap;
-    }
-
-    .dotbar{
-      display:flex;
-      gap:8px;
-      align-items:center;
-      flex-wrap:wrap;
-    }
-
-    .dot{
-      width:9px;
-      height:9px;
-      border-radius:999px;
-      background:rgba(90,70,55,.18);
-      transition:transform .2s ease, background .2s ease;
-      cursor:pointer;
-    }
-
-    .dot.active{
-      background:var(--accent);
-      transform:scale(1.2);
-    }
-
-    .carousel-buttons{
-      display:flex;
-      gap:10px;
-    }
-
-    .map-frame{
-      margin-top:14px;
-      border-radius:18px;
-      overflow:hidden;
-      border:1px solid rgba(90,70,55,.08);
-      box-shadow:var(--shadow-soft);
-    }
-
-    .map-frame iframe{
-      width:100%;
-      height:420px;
-      border:0;
-      display:block;
-    }
-
-    .faq-grid{
-      display:grid;
-      grid-template-columns:repeat(2, minmax(0,1fr));
-      gap:14px;
-      margin-top:16px;
-    }
-
-    .faq-item{
-      padding:16px;
-      border-radius:18px;
-      border:1px solid rgba(90,70,55,.08);
-      background:rgba(255,255,255,.72);
-      box-shadow:var(--shadow-soft);
-    }
-
-    .faq-item h3{
-      margin:0 0 8px;
-      font-size:18px;
-    }
-
-    .faq-item p{
-      margin:0;
-      color:var(--muted);
-      line-height:1.8;
-      font-size:15px;
-    }
-
-    footer{
-      margin-top:24px;
-      text-align:center;
-      color:var(--muted);
-      font-size:14px;
-      padding:6px 0 12px;
-    }
-
-    .reveal{
-      opacity:0;
-      transform:translateY(34px) scale(.985);
-      transition:
-        opacity .8s ease,
-        transform .8s cubic-bezier(.22,1,.36,1);
-      will-change:opacity, transform;
-    }
-
-    .reveal.in-view{
-      opacity:1;
-      transform:translateY(0) scale(1);
-    }
-
-    .reveal-left{
-      transform:translateX(-34px);
-    }
-
-    .reveal-right{
-      transform:translateX(34px);
-    }
-
-    .reveal-left.in-view,
-    .reveal-right.in-view{
-      transform:translateX(0);
-    }
-
-    @keyframes sparkle{
-      0%{opacity:.55; transform:translateY(0)}
-      100%{opacity:1; transform:translateY(-4px)}
-    }
-
-    @keyframes floatCloud{
-      0%{transform:translateX(0) translateY(0)}
-      50%{transform:translateX(8px) translateY(-6px)}
-      100%{transform:translateX(0) translateY(0)}
-    }
-
-    @media (max-width: 920px){
-      .grid.two{
-        grid-template-columns:1fr;
-      }
-    }
-
-    @media (max-width: 720px){
-      .wrap{
-        width:min(calc(100% - 20px), var(--max));
-        padding-top:16px;
-      }
-
-      .top-nav{
-        padding-bottom:14px;
-      }
-
-      .hero{
-        min-height:clamp(520px, 126vw, 760px);
-        border-radius:26px;
-      }
-
-      .hero::before{
-        inset:8px;
-        border-radius:20px;
-      }
-
-      .hero-inner{
-        min-height:clamp(520px, 126vw, 760px);
-        padding:66px 16px 34px;
-      }
-
-      .countdown{
-        grid-template-columns:repeat(2, 1fr);
-      }
-
-      .info-grid,
-      .traffic-grid,
-      .faq-grid{
-        grid-template-columns:1fr;
-      }
-
-      .card-body{
-        padding:20px;
-      }
-
-      .rsvp-embed iframe{
-        height:980px;
-      }
-
-      .map-frame iframe{
-        height:360px;
-      }
-
-      .slide{
-        flex:0 0 78vw;
-      }
-
-      .nav-links{
-        width:100%;
-      }
+    .wrap{width:min(calc(100% - 28px),var(--max));margin:0 auto;padding:22px 0 40px}
+    .top-nav{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 4px 18px;flex-wrap:wrap}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand-mark{width:42px;height:42px;border-radius:50%;background-image:url('./circle_fig1.png');background-size:cover;background-position:center;box-shadow:var(--shadow-soft);opacity:.9}
+    .brand-text{line-height:1.2}
+    .brand-text strong{display:block;font-size:16px}
+    .brand-text span{font-size:12px;color:var(--muted);letter-spacing:.08em}
+    .nav-links{display:flex;gap:10px;flex-wrap:wrap}
+    .pill{padding:10px 14px;background:rgba(255,255,255,.68);border:1px solid rgba(255,255,255,.7);border-radius:999px;font-size:13px;color:var(--muted);box-shadow:var(--shadow-soft);backdrop-filter:blur(8px);transition:transform .2s ease,box-shadow .2s ease}
+    .pill:hover{transform:translateY(-2px);box-shadow:0 12px 22px rgba(68,45,30,.08)}
+    .hero{position:relative;min-height:clamp(500px,68vw,820px);border-radius:34px;overflow:hidden;box-shadow:0 20px 50px rgba(60,38,20,.12);isolation:isolate;background:linear-gradient(180deg,rgba(246,239,230,.95) 0%,rgba(246,239,230,.15) 100%)}
+    .hero::before{content:"";position:absolute;inset:12px;border-radius:26px;border:1px solid rgba(255,255,255,.36);backdrop-filter:blur(1px);z-index:0}
+    .hero-sparkles,.hero-cloud,.castle-silhouette{position:absolute;pointer-events:none;z-index:1}
+    .hero-sparkles{inset:0;background:radial-gradient(circle at 14% 22%,rgba(255,232,165,.95) 0 1.6px,transparent 2.6px),radial-gradient(circle at 21% 16%,rgba(255,255,255,.95) 0 1.4px,transparent 2.4px),radial-gradient(circle at 78% 17%,rgba(255,232,165,.95) 0 1.7px,transparent 2.7px),radial-gradient(circle at 72% 26%,rgba(255,255,255,.95) 0 1.4px,transparent 2.4px),radial-gradient(circle at 58% 12%,rgba(255,240,205,.85) 0 1.2px,transparent 2.2px),radial-gradient(circle at 43% 23%,rgba(255,255,255,.85) 0 1.1px,transparent 2.1px);animation:sparkle 4.5s ease-in-out infinite alternate}
+    .hero-cloud{width:clamp(110px,18vw,230px);aspect-ratio:2.4/1;opacity:.82;background:radial-gradient(circle at 22% 60%,rgba(255,255,255,.92) 0 26%,transparent 27%),radial-gradient(circle at 42% 44%,rgba(255,255,255,.95) 0 30%,transparent 31%),radial-gradient(circle at 62% 58%,rgba(255,255,255,.92) 0 24%,transparent 25%),radial-gradient(circle at 78% 62%,rgba(255,255,255,.86) 0 18%,transparent 19%);filter:blur(1px)}
+    .cloud-left{top:18%;left:5%;animation:floatCloud 9s ease-in-out infinite}
+    .cloud-right{top:24%;right:6%;transform:scale(.92);animation:floatCloud 10s ease-in-out infinite reverse}
+    .castle-silhouette{top:0;left:0;right:0;bottom:0;height:100%;background:url('./castle_0.png') no-repeat center bottom;background-size:auto 100%;-webkit-mask-image:linear-gradient(to right,transparent 0%,black 15%,black 85%,transparent 100%);mask-image:linear-gradient(to right,transparent 0%,black 15%,black 85%,transparent 100%)}
+    .hero-inner{position:relative;z-index:2;min-height:clamp(500px,68vw,820px);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:clamp(72px,10vw,120px) 22px 40px}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.68);border:1px solid rgba(255,255,255,.62);color:#7b6658;font-size:12px;letter-spacing:.14em;backdrop-filter:blur(8px);box-shadow:var(--shadow-soft);margin-bottom:18px}
+    .hero-title{font-size:clamp(34px,5.8vw,66px);line-height:1.12;margin:0;text-shadow:0 2px 20px rgba(255,255,255,.18)}
+    .hero-meta{margin-top:12px;font-size:clamp(15px,2.1vw,19px);color:#6f6156}
+    .hero-sub{margin-top:8px;max-width:34ch;color:#7a6b60;font-size:clamp(14px,2vw,17px)}
+    .countdown-wrap{margin-top:26px;width:min(100%,620px)}
+    .countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .count-item{background:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.72);border-radius:20px;padding:16px 10px;box-shadow:var(--shadow-soft);backdrop-filter:blur(8px)}
+    .count-num{font-size:clamp(24px,4vw,38px);font-weight:700;line-height:1}
+    .count-label{margin-top:8px;color:var(--muted);font-size:12px;letter-spacing:.1em}
+    .grid{display:grid;gap:18px;margin-top:22px}
+    .grid.two{grid-template-columns:1.05fr .95fr}
+    .grid.one{grid-template-columns:1fr}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,.95),rgba(249,243,236,.95));border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+    .card-body{padding:24px}
+    .section-head{margin-bottom:14px}
+    .section-tag{display:inline-block;font-family:"Special Elite",monospace;font-size:12px;letter-spacing:.12em;color:var(--muted);margin-bottom:8px}
+    .section-head h2{margin:0;font-size:clamp(24px,3vw,34px);line-height:1.2}
+    .section-desc{margin:8px 0 0;color:var(--muted);line-height:1.8;font-size:15px}
+    .info-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:16px}
+    .info-box{padding:16px;border-radius:18px;border:1px solid rgba(90,70,55,.08);background:rgba(255,255,255,.72);box-shadow:var(--shadow-soft)}
+    .info-key{font-family:"Special Elite",monospace;font-size:12px;color:var(--muted);letter-spacing:.12em;margin-bottom:8px}
+    .info-value{line-height:1.8;font-size:15px}
+    .story-card{display:flex;flex-direction:column;justify-content:space-between;height:100%;min-height:100%;position:relative}
+    .polaroid{background:#fff;padding:12px 12px 20px;border-radius:18px;box-shadow:0 12px 26px rgba(68,45,30,.08);width:min(100%,360px);margin:0 auto;transform:rotate(-2deg);position:relative;overflow:hidden}
+    .marquee-container{width:100%;aspect-ratio:4/5;border-radius:12px;overflow:hidden;position:relative}
+    .marquee-track{display:flex;width:100%;height:100%;transition:transform .8s ease-in-out}
+    .marquee-track img{flex:0 0 100%;width:100%;height:100%;object-fit:cover;border-radius:12px}
+    .marquee-track video{flex:0 0 100%;width:100%;height:100%;object-fit:cover;border-radius:12px}
+    .polaroid-note{margin-top:12px;color:var(--muted);text-align:center;font-size:14px}
+    .sticker{display:inline-block;margin-top:16px;padding:8px 12px;border-radius:999px;background:rgba(214,171,84,.16);color:#8f6e25;font-size:12px;letter-spacing:.08em}
+    .rsvp-shell{border-radius:22px;overflow:hidden;border:1px solid rgba(90,70,55,.08);background:#fffaf3;box-shadow:var(--shadow-soft)}
+    .rsvp-top{padding:18px 18px 16px;background:linear-gradient(180deg,rgba(255,255,255,.8),rgba(255,255,255,.55)),linear-gradient(135deg,#f9efe2,#f7ead8);border-bottom:1px solid rgba(90,70,55,.08)}
+    .rsvp-top strong{display:block;font-size:18px;margin-bottom:6px}
+    .rsvp-top p{margin:0;color:var(--muted);font-size:14px;line-height:1.7}
+    .rsvp-actions{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 16px;border-radius:14px;border:none;cursor:pointer;font-size:15px;transition:transform .2s ease,box-shadow .2s ease,opacity .2s ease}
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{background:linear-gradient(135deg,#c24c4c,#9f3030);color:#fff;box-shadow:0 12px 22px rgba(178,58,58,.22)}
+    .btn-secondary{background:#fff;color:var(--accent);border:1px solid rgba(178,58,58,.18);box-shadow:var(--shadow-soft)}
+    .rsvp-embed{position:relative;background:#fff}
+    .rsvp-embed::before{content:"";position:absolute;top:0;left:0;right:0;height:68px;background:linear-gradient(180deg,#fffaf3,#fffdf9);z-index:2;pointer-events:none}
+    .rsvp-embed iframe{width:100%;height:860px;border:0;display:block;background:#fff;filter:contrast(.985) saturate(.96)}
+    .traffic-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:16px}
+    .traffic-card{background:linear-gradient(180deg,rgba(255,255,255,.92),rgba(250,245,238,.92));border:1px solid rgba(0,0,0,.06);border-radius:18px;padding:16px;box-shadow:var(--shadow-soft)}
+    .traffic-card h3{margin:0 0 8px;font-size:18px}
+    .traffic-card p{margin:6px 0;color:var(--muted);line-height:1.8;font-size:15px}
+    .carousel-shell{margin-top:12px}
+    .carousel{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scroll-behavior:smooth;padding:2px 2px 10px}
+    .carousel::-webkit-scrollbar{height:10px}
+    .carousel::-webkit-scrollbar-thumb{background:rgba(90,70,55,.16);border-radius:999px}
+    .slide{flex:0 0 min(78vw,320px);scroll-snap-align:center;border-radius:22px;overflow:hidden;border:1px solid rgba(0,0,0,.06);background:linear-gradient(180deg,rgba(255,255,255,.96),rgba(248,243,236,.96));box-shadow:0 10px 24px rgba(0,0,0,.06);transform:translateY(0);transition:transform .25s ease,box-shadow .25s ease}
+    .slide:hover{transform:translateY(-4px);box-shadow:0 16px 30px rgba(0,0,0,.08)}
+    .slide img{width:100%;aspect-ratio:4/5;object-fit:cover}
+    .slide-caption{padding:12px 14px 14px;color:#7a695c;font-size:14px}
+    .carousel-nav{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:12px;flex-wrap:wrap}
+    .dotbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+    .dot{width:9px;height:9px;border-radius:999px;background:rgba(90,70,55,.18);transition:transform .2s ease,background .2s ease;cursor:pointer}
+    .dot.active{background:var(--accent);transform:scale(1.2)}
+    .carousel-buttons{display:flex;gap:10px}
+    .map-frame{margin-top:14px;border-radius:18px;overflow:hidden;border:1px solid rgba(90,70,55,.08);box-shadow:var(--shadow-soft)}
+    .map-frame iframe{width:100%;height:420px;border:0;display:block}
+    .faq-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:16px}
+    .faq-item{padding:16px;border-radius:18px;border:1px solid rgba(90,70,55,.08);background:rgba(255,255,255,.72);box-shadow:var(--shadow-soft)}
+    .faq-item h3{margin:0 0 8px;font-size:18px}
+    .faq-item p{margin:0;color:var(--muted);line-height:1.8;font-size:15px}
+    footer{margin-top:24px;text-align:center;color:var(--muted);font-size:14px;padding:6px 0 12px}
+    .reveal{opacity:0;transform:translateY(34px) scale(.985);transition:opacity .8s ease,transform .8s cubic-bezier(.22,1,.36,1);will-change:opacity,transform}
+    .reveal.in-view{opacity:1;transform:translateY(0) scale(1)}
+    .reveal-left{transform:translateX(-34px)}
+    .reveal-right{transform:translateX(34px)}
+    .reveal-left.in-view,.reveal-right.in-view{transform:translateX(0)}
+    @keyframes sparkle{0%{opacity:.55;transform:translateY(0)}100%{opacity:1;transform:translateY(-4px)}}
+    @keyframes floatCloud{0%{transform:translateX(0) translateY(0)}50%{transform:translateX(8px) translateY(-6px)}100%{transform:translateX(0) translateY(0)}}
+    @media(max-width:920px){.grid.two{grid-template-columns:1fr}}
+    @media(max-width:720px){
+      .wrap{width:min(calc(100% - 20px),var(--max));padding-top:16px}
+      .top-nav{padding-bottom:14px}
+      .hero{min-height:clamp(520px,126vw,760px);border-radius:26px}
+      .hero::before{inset:8px;border-radius:20px}
+      .hero-inner{min-height:clamp(520px,126vw,760px);padding:66px 16px 34px}
+      .countdown{grid-template-columns:repeat(2,1fr)}
+      .info-grid,.traffic-grid,.faq-grid{grid-template-columns:1fr}
+      .card-body{padding:20px}
+      .rsvp-embed iframe{height:980px}
+      .map-frame iframe{height:360px}
+      .slide{flex:0 0 78vw}
+      .nav-links{width:100%}
     }
   </style>
 </head>
@@ -788,11 +145,10 @@
       <div class="brand">
         <div class="brand-mark" aria-hidden="true"></div>
         <div class="brand-text">
-          <strong>賴柏延 & 馬琳</strong>
+          <strong>賴柏延 &amp; 馬琳</strong>
           <span>WEDDING INVITATION</span>
         </div>
       </div>
-
       <nav class="nav-links">
         <a class="pill" href="#info">婚禮資訊</a>
         <a class="pill" href="#rsvp">出席回覆</a>
@@ -807,79 +163,45 @@
       <div class="hero-cloud cloud-left"></div>
       <div class="hero-cloud cloud-right"></div>
       <div class="castle-silhouette"></div>
-
       <div class="hero-inner">
-        <div style="
-          background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('./bg_fig1.png');
-          background-color: rgba(255, 255, 255, 0.5);
-          background-size: contain;
-          background-position: center;
-          background-repeat: no-repeat;
-          padding: 60px 40px;
-          border-radius: 24px;
-          box-shadow: var(--shadow-soft);
-          border: 1px solid rgba(255, 255, 255, 0.6);
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          width: min(100%, 500px);
-        ">
+        <div style="background-image:linear-gradient(rgba(255,255,255,.85),rgba(255,255,255,.85)),url('./bg_fig1.png');background-color:rgba(255,255,255,.5);background-size:contain;background-position:center;background-repeat:no-repeat;padding:60px 40px;border-radius:24px;box-shadow:var(--shadow-soft);border:1px solid rgba(255,255,255,.6);display:flex;flex-direction:column;align-items:center;width:min(100%,500px)">
           <div class="hero-badge">WEDDING INVITATION</div>
-          <h1 class="hero-title">賴柏延 & 馬琳</h1>
+          <h1 class="hero-title">賴柏延 &amp; 馬琳</h1>
           <div class="hero-meta">2026 / 05 / 30 ・ 台中旌旗教會</div>
           <div class="hero-sub">在溫柔的紙感與微微發光的城堡氛圍裡，我們想把這份喜悅分享給你。</div>
         </div>
-
         <div class="countdown-wrap">
           <div class="countdown">
-            <div class="count-item">
-              <div class="count-num" id="days">--</div>
-              <div class="count-label">天</div>
-            </div>
-            <div class="count-item">
-              <div class="count-num" id="hours">--</div>
-              <div class="count-label">時</div>
-            </div>
-            <div class="count-item">
-              <div class="count-num" id="minutes">--</div>
-              <div class="count-label">分</div>
-            </div>
-            <div class="count-item">
-              <div class="count-num" id="seconds">--</div>
-              <div class="count-label">秒</div>
-            </div>
+            <div class="count-item"><div class="count-num" id="days">--</div><div class="count-label">天</div></div>
+            <div class="count-item"><div class="count-num" id="hours">--</div><div class="count-label">時</div></div>
+            <div class="count-item"><div class="count-num" id="minutes">--</div><div class="count-label">分</div></div>
+            <div class="count-item"><div class="count-num" id="seconds">--</div><div class="count-label">秒</div></div>
           </div>
         </div>
       </div>
     </section>
 
     <section class="grid two">
-      <article class="card reveal reveal-left" id="info" style="
-        background: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url('./bg_fig2.png') no-repeat center / cover;
-      ">
+      <article class="card reveal reveal-left" id="info" style="background:linear-gradient(rgba(255,255,255,.85),rgba(255,255,255,.85)),url('./bg_fig2.png') no-repeat center/cover">
         <div class="card-body">
           <div class="section-head">
             <span class="section-tag">WEDDING DETAILS</span>
             <h2>婚禮資訊</h2>
             <p class="section-desc">誠摯邀請您，一起參與並見證我們的重要時刻。</p>
           </div>
-
           <div class="info-grid">
             <div class="info-box">
-              <div class="info-key">GROOM & BRIDE</div>
+              <div class="info-key">GROOM &amp; BRIDE</div>
               <div class="info-value">新郎｜賴柏延<br>新娘｜馬琳</div>
             </div>
-
             <div class="info-box">
               <div class="info-key">DATE</div>
               <div class="info-value">2026 / 05 / 30（六）<br>10:00 - 13:00</div>
             </div>
-
             <div class="info-box">
               <div class="info-key">VENUE</div>
               <div class="info-value">台中旌旗教會二樓副堂</div>
             </div>
-
             <div class="info-box">
               <div class="info-key">ADDRESS</div>
               <div class="info-value">台中市南屯區文心南五路三段 160 號</div>
@@ -896,7 +218,6 @@
               <h2>邀請你來</h2>
               <p class="section-desc">像童話故事中的一頁，也像日常裡最溫柔的一天。</p>
             </div>
-
             <div class="polaroid">
               <div class="marquee-container">
                 <div class="marquee-track" id="asideMarquee"></div>
@@ -904,49 +225,40 @@
               <div class="polaroid-note">Save the Date ・ 2026.05.30</div>
             </div>
           </div>
-
           <div class="sticker">our forever starts here</div>
         </div>
       </aside>
     </section>
 
-    <section class="card reveal" id="rsvp" style="margin-top:22px;">
+    <section class="card reveal" id="rsvp" style="margin-top:22px">
       <div class="card-body">
         <div class="section-head">
           <span class="section-tag">RSVP CARD</span>
           <h2>出席回覆</h2>
         </div>
-
         <div class="rsvp-shell">
           <div class="rsvp-top">
             <strong>✦ 婚禮出席回覆 ✦</strong>
             <p>請填寫是否出席、攜伴人數與相關資訊，我們會依此安排座位與接待。</p>
-
             <div class="rsvp-actions">
               <a class="btn btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLSfpaHthGVwhbTOL5Mkcuieyn3Uhq9RFL0IhNTYcCyr4BWatzQ/viewform?usp=header" target="_blank" rel="noopener">開啟表單填寫</a>
               <a class="btn btn-secondary" href="#traffic">先看交通資訊</a>
             </div>
           </div>
-
           <div class="rsvp-embed">
-            <iframe
-              src="https://docs.google.com/forms/d/e/1FAIpQLSfpaHthGVwhbTOL5Mkcuieyn3Uhq9RFL0IhNTYcCyr4BWatzQ/viewform?embedded=true"
-              title="Google 表單 RSVP"
-              loading="lazy">
-            </iframe>
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfpaHthGVwhbTOL5Mkcuieyn3Uhq9RFL0IhNTYcCyr4BWatzQ/viewform?embedded=true" title="Google 表單 RSVP" loading="lazy"></iframe>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="card reveal" id="traffic" style="margin-top:22px;">
+    <section class="card reveal" id="traffic" style="margin-top:22px">
       <div class="card-body">
         <div class="section-head">
           <span class="section-tag">TRAFFIC GUIDE</span>
           <h2>交通資訊</h2>
           <p class="section-desc">希望你們都能輕鬆抵達，一起見證我們的重要時刻。</p>
         </div>
-
         <div class="traffic-grid">
           <div class="traffic-card">
             <h3>婚禮地點</h3>
@@ -954,18 +266,15 @@
             <p>台中市南屯區文心南五路三段 160 號</p>
             <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E4%B8%AD%E6%97%8C%E6%97%97%E6%95%99%E6%9C%83" target="_blank" rel="noopener">Google Maps 導航</a>
           </div>
-
           <div class="traffic-card">
             <h3>建議抵達時間</h3>
             <p>建議婚禮開始前 20–30 分鐘到場，方便報到與入座，也能更從容地拍照與休息。</p>
           </div>
-
           <div class="traffic-card">
             <h3>自行開車</h3>
             <p>國道一號請下<strong>南屯交流道</strong>（往台中方向），直行五權西路二段後右轉益豐路四段即可抵達。</p>
             <p>建議將車輛停放於教會旁的<strong>正德醫院地下停車場</strong>（計時收費 $15/半小時，停好車再步行至教會）。</p>
           </div>
-
           <div class="traffic-card">
             <h3>大眾運輸</h3>
             <p>・<strong>台中火車站</strong>：請搭乘 75 號公車至「黎明向上路口」，步行約 10 分鐘。<br>・<strong>高鐵台中站</strong>：請搭乘 160 號快捷公車至「向上永春東七路」，步行約 7 分鐘。</p>
@@ -974,20 +283,17 @@
       </div>
     </section>
 
-    <section class="card reveal" id="gallery" style="margin-top:22px;">
+    <section class="card reveal" id="gallery" style="margin-top:22px">
       <div class="card-body">
         <div class="section-head">
           <span class="section-tag">MEMORY GALLERY</span>
           <h2>照片相簿</h2>
           <p class="section-desc">像翻閱一本溫柔的相簿，滑動看看我們的小小故事。</p>
         </div>
-
         <div class="carousel-shell">
           <div class="carousel" id="photoCarousel"></div>
-
           <div class="carousel-nav">
             <div class="dotbar" id="dotbar"></div>
-
             <div class="carousel-buttons">
               <button class="btn btn-secondary" id="prevBtn" type="button">← 上一張</button>
               <button class="btn btn-secondary" id="nextBtn" type="button">下一張 →</button>
@@ -998,76 +304,50 @@
     </section>
 
     <section class="grid one">
-      <article class="card reveal" id="map" style="margin-top:22px;">
+      <article class="card reveal" id="map" style="margin-top:22px">
         <div class="card-body">
           <div class="section-head">
             <span class="section-tag">MAP</span>
             <h2>地圖</h2>
             <p class="section-desc">點擊下方按鈕可直接開啟 Google Maps 導航。</p>
           </div>
-
           <div class="map-frame">
-            <iframe
-              src="https://www.google.com/maps?q=%E5%8F%B0%E4%B8%AD%E6%97%8C%E6%97%97%E6%95%99%E6%9C%83&output=embed"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              title="台中旌旗教會 Google Map">
-            </iframe>
+            <iframe src="https://www.google.com/maps?q=%E5%8F%B0%E4%B8%AD%E6%97%8C%E6%97%97%E6%95%99%E6%9C%83&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="台中旌旗教會 Google Map"></iframe>
           </div>
-
-          <div class="rsvp-actions" style="margin-top:14px;">
+          <div class="rsvp-actions" style="margin-top:14px">
             <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E4%B8%AD%E6%97%8C%E6%97%97%E6%95%99%E6%9C%83" target="_blank" rel="noopener">開啟 Google Maps</a>
           </div>
         </div>
       </article>
     </section>
 
-    <section class="card reveal" style="margin-top:22px;">
+    <section class="card reveal" style="margin-top:22px">
       <div class="card-body">
         <div class="section-head">
           <span class="section-tag">FAQ</span>
           <h2>小提醒</h2>
           <p class="section-desc">一些婚禮當天可能會需要的小資訊。</p>
         </div>
-
         <div class="faq-grid">
-          <div class="faq-item">
-            <h3>服裝建議</h3>
-            <p>穿著舒適得體即可。</p>
-          </div>
-          <div class="faq-item">
-            <h3>攜伴與座位</h3>
-            <p>若有攜伴需求，請在表單中填寫，我們會依回覆安排座位。</p>
-          </div>
-          <div class="faq-item">
-            <h3>表單填寫</h3>
-            <p>若嵌入表單在部分手機瀏覽器顯示較慢，可直接使用上方按鈕開啟完整表單頁面。</p>
-          </div>
-          <div class="faq-item">
-            <h3>最重要的事</h3>
-            <p>你們的到來，就是給我們最珍貴的祝福。</p>
-          </div>
+          <div class="faq-item"><h3>服裝建議</h3><p>穿著舒適得體即可。</p></div>
+          <div class="faq-item"><h3>攜伴與座位</h3><p>若有攜伴需求，請在表單中填寫，我們會依回覆安排座位。</p></div>
+          <div class="faq-item"><h3>表單填寫</h3><p>若嵌入表單在部分手機瀏覽器顯示較慢，可直接使用上方按鈕開啟完整表單頁面。</p></div>
+          <div class="faq-item"><h3>最重要的事</h3><p>你們的到來，就是給我們最珍貴的祝福。</p></div>
         </div>
       </div>
     </section>
 
-    <footer class="reveal">
-      © 2026 賴柏延 & 馬琳 ・ Designed with love
-    </footer>
+    <footer class="reveal">© 2026 賴柏延 &amp; 馬琳 ・ Designed with love</footer>
   </div>
 
   <script>
-    // ==========================================
-    // 1. 設定「婚禮相簿」的照片清單
-    // ==========================================
+    // ==================================================
+    // 1. 婚禮相簿
+    // ==================================================
     const albumFolder = "./婚禮相簿/";
     const albumFiles = [
-      "IMG_1317.HEIC",
-      "IMG_1374.HEIC",
-      "IMG_5750.HEIC",
-      "IMG_5878.heic",
-      "IMG_5887.HEIC",
-      "IMG_5897.JPG",
+      "IMG_1317.HEIC","IMG_1374.HEIC","IMG_5750.HEIC","IMG_5878.heic",
+      "IMG_5887.HEIC","IMG_5897.JPG",
       "classicu 2026-02-20 140519F5FFD32C3985.JPG",
       "classicu 2026-02-20 1421218AC6BE34450F.JPG",
       "classicu 2026-02-20 142856EB22426B9DAD.JPG",
@@ -1075,9 +355,9 @@
       "classicu 2026-02-20 173149B23E89B76D71.JPG"
     ];
 
-    // ==========================================
-    // 2. 設定「邀請你來 (跑馬燈)」的照片清單
-    // ==========================================
+    // ==================================================
+    // 2. 跑馬燈（支援圖片 + 影片混播）
+    // ==================================================
     const marqueeFolder = "./跑馬燈_0/";
     const marqueeFiles = [
       "PICTUREUP001.JPG",
@@ -1087,9 +367,9 @@
       "PICTUREUP005.JPG"
     ];
 
-    // ==========================================
-    // 自動生成相簿與跑馬燈畫面
-    // ==========================================
+    // ==================================================
+    // 生成婚禮相簿輪播
+    // ==================================================
     const carouselContainer = document.getElementById("photoCarousel");
     const dotbar = document.getElementById("dotbar");
 
@@ -1101,126 +381,129 @@
         <div class="slide-caption">Fig.${String(index + 1).padStart(2, "0")} ・ 一起收藏此刻</div>
       `;
       carouselContainer.appendChild(slide);
-
       const dot = document.createElement("span");
       dot.className = "dot" + (index === 0 ? " active" : "");
       dotbar.appendChild(dot);
     });
 
+    // ==================================================
+    // 生成跑馬燈（圖片 + 影片混播）
+    // ==================================================
     const asideMarquee = document.getElementById("asideMarquee");
-    marqueeFiles.forEach((photo, index) => {
-      const img = document.createElement("img");
-      img.src = `${marqueeFolder}${photo}`;
-      img.alt = `Marquee ${index + 1}`;
-      img.onerror = function() { this.style.display='none'; };
-      asideMarquee.appendChild(img);
+
+    marqueeFiles.forEach((file, index) => {
+      const ext = file.split(".").pop().toLowerCase();
+      const isVideo = ["mp4", "webm", "mov", "ogg"].includes(ext);
+
+      if (isVideo) {
+        const video = document.createElement("video");
+        video.src = marqueeFolder + file;
+        video.muted = true;
+        video.playsInline = true;
+        video.preload = "metadata";
+        video.style.cssText = "flex:0 0 100%;width:100%;height:100%;object-fit:cover;border-radius:12px;";
+        if (index === 0) { video.autoplay = true; video.loop = false; }
+        asideMarquee.appendChild(video);
+      } else {
+        const img = document.createElement("img");
+        img.src = marqueeFolder + file;
+        img.alt = "Marquee " + (index + 1);
+        img.onerror = function() { this.style.display = "none"; };
+        asideMarquee.appendChild(img);
+      }
     });
 
-    // ==========================================
-    // 倒數計時與互動邏輯
-    // ==========================================
-    const weddingDate = new Date("2026-05-30T00:00:00+08:00").getTime();
+    // 跑馬燈自動輪播：圖片 3.5 秒切換，影片播完再切
+    (function initMarquee() {
+      const items = Array.from(asideMarquee.children);
+      const total = items.length;
+      if (total <= 1) return;
 
-    function updateCountdown() {
-      const now = new Date().getTime();
-      const distance = weddingDate - now;
+      let idx = 0;
+      let timer = null;
 
-      const daysEl = document.getElementById("days");
-      const hoursEl = document.getElementById("hours");
-      const minutesEl = document.getElementById("minutes");
-      const secondsEl = document.getElementById("seconds");
+      function showItem(n) {
+        idx = (n + total) % total;
+        asideMarquee.style.transform = `translateX(-${idx * 100}%)`;
 
-      if (distance <= 0) {
-        daysEl.textContent = "0";
-        hoursEl.textContent = "0";
-        minutesEl.textContent = "0";
-        secondsEl.textContent = "0";
-        return;
+        // 暫停所有影片，播放當前影片
+        items.forEach((el, i) => {
+          if (el.tagName === "VIDEO") {
+            if (i === idx) { el.currentTime = 0; el.play(); }
+            else el.pause();
+          }
+        });
+
+        // 設定下一次切換時機
+        clearTimeout(timer);
+        const current = items[idx];
+        if (current.tagName === "VIDEO") {
+          // 影片播完後切換（監聽 ended）
+          current.onended = () => showItem(idx + 1);
+          // 若影片超過 30 秒強制切換（保險機制）
+          timer = setTimeout(() => showItem(idx + 1), 30000);
+        } else {
+          timer = setTimeout(() => showItem(idx + 1), 3500);
+        }
       }
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((distance / (1000 * 60)) % 60);
-      const seconds = Math.floor((distance / 1000) % 60);
+      showItem(0);
+    })();
 
-      daysEl.textContent = days;
-      hoursEl.textContent = String(hours).padStart(2, "0");
-      minutesEl.textContent = String(minutes).padStart(2, "0");
-      secondsEl.textContent = String(seconds).padStart(2, "0");
+    // ==================================================
+    // 倒數計時
+    // ==================================================
+    const weddingDate = new Date("2026-05-30T00:00:00+08:00").getTime();
+    function updateCountdown() {
+      const distance = weddingDate - new Date().getTime();
+      if (distance <= 0) {
+        ["days","hours","minutes","seconds"].forEach(id => document.getElementById(id).textContent = "0");
+        return;
+      }
+      document.getElementById("days").textContent = Math.floor(distance / 86400000);
+      document.getElementById("hours").textContent = String(Math.floor(distance / 3600000) % 24).padStart(2,"0");
+      document.getElementById("minutes").textContent = String(Math.floor(distance / 60000) % 60).padStart(2,"0");
+      document.getElementById("seconds").textContent = String(Math.floor(distance / 1000) % 60).padStart(2,"0");
     }
-
     updateCountdown();
     setInterval(updateCountdown, 1000);
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("in-view");
-        }
-      });
+    // ==================================================
+    // 進場動畫
+    // ==================================================
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("in-view"); });
     }, { threshold: 0.16 });
-
     document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
+    // ==================================================
+    // 相簿輪播控制
+    // ==================================================
     const slides = Array.from(carouselContainer.querySelectorAll(".slide"));
     const dots = Array.from(document.querySelectorAll(".dot"));
-    const prevBtn = document.getElementById("prevBtn");
-    const nextBtn = document.getElementById("nextBtn");
-
     let currentIndex = 0;
 
     function goToSlide(index) {
       currentIndex = Math.max(0, Math.min(index, slides.length - 1));
-      slides[currentIndex].scrollIntoView({
-        behavior: "smooth",
-        inline: "center",
-        block: "nearest"
-      });
-      updateDots();
+      slides[currentIndex].scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+      dots.forEach((d, i) => d.classList.toggle("active", i === currentIndex));
     }
 
-    function updateDots() {
-      dots.forEach((dot, i) => {
-        dot.classList.toggle("active", i === currentIndex);
-      });
-    }
-
-    prevBtn.addEventListener("click", () => goToSlide(currentIndex - 1));
-    nextBtn.addEventListener("click", () => goToSlide(currentIndex + 1));
+    document.getElementById("prevBtn").addEventListener("click", () => goToSlide(currentIndex - 1));
+    document.getElementById("nextBtn").addEventListener("click", () => goToSlide(currentIndex + 1));
 
     carouselContainer.addEventListener("scroll", () => {
-      let closestIndex = 0;
-      let closestDistance = Infinity;
-      const carouselLeft = carouselContainer.getBoundingClientRect().left;
-
-      slides.forEach((slide, i) => {
-        const distance = Math.abs(slide.getBoundingClientRect().left - carouselLeft - 10);
-        if (distance < closestDistance) {
-          closestDistance = distance;
-          closestIndex = i;
-        }
+      let closest = 0, minDist = Infinity;
+      const left = carouselContainer.getBoundingClientRect().left;
+      slides.forEach((s, i) => {
+        const d = Math.abs(s.getBoundingClientRect().left - left - 10);
+        if (d < minDist) { minDist = d; closest = i; }
       });
-
-      currentIndex = closestIndex;
-      updateDots();
+      currentIndex = closest;
+      dots.forEach((d, i) => d.classList.toggle("active", i === currentIndex));
     });
 
-    dots.forEach((dot, i) => {
-      dot.addEventListener("click", () => goToSlide(i));
-    });
-
-    if (asideMarquee) {
-      const marqueeImages = asideMarquee.querySelectorAll("img");
-      let currentMarqueeIndex = 0;
-      const totalMarqueeImages = marqueeImages.length;
-
-      setInterval(() => {
-        if (totalMarqueeImages > 1) {
-          currentMarqueeIndex = (currentMarqueeIndex + 1) % totalMarqueeImages;
-          asideMarquee.style.transform = `translateX(-${currentMarqueeIndex * 100}%)`;
-        }
-      }, 3500);
-    }
+    dots.forEach((d, i) => d.addEventListener("click", () => goToSlide(i)));
   </script>
 </body>
 </html>
